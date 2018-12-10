@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* 4. Единицы длины пронумерованы следующим
+образом:
+1 — дециметр, 2 — километр,
+3 — метр, 4 — миллиметр, 5 — сантиметр.
+Дан номер единицы длины и длина
+отрезка L в этих единицах (вещественное
+число). Вывести длину данного отрезка
+в метрах. */
+
+    var dlina, dlina_metry, ed_izm;
+    dlina = 15;
+    ed_izm = prompt("Введите номер единицы измерения:\n" +
+        "1 — дециметр, 2 — километр,\n" +
+        "3 — метр, 4 — миллиметр, 5 — сантиметр");
+
+    if (ed_izm == 1) {
+        dlina_metry = dlina * 10;
+    } else if (ed_izm == 2) {
+        dlina_metry = dlina * 1000;
+    } else if (ed_izm == 3) {
+        dlina_metry = dlina;
+    } else if (ed_izm == 4) {
+        dlina_metry = dlina * 0.001;
+    } else if (ed_izm == 5) {
+        dlina_metry = dlina * 0.01;
+    }
+    document.write(dlina_metry + " метров");
+
+</script>
+
+</body>
+</html>

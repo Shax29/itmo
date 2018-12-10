@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* 2. Есть три вершины a, b и с. У каждой
+вершина заданы координатами x, y, z как
+целые числа. Нужно определить - является
+ли треугольник с заданными координатами
+прямоугольным. */
+
+     var a, b, c, ab, ac, bc;
+     a = [0 ,0, 0];
+     b = [0, 11, 0];
+     c = [6, 0, 0];
+
+     ab = Math.pow((b[0]-a[0]),2) + Math.pow((b[1] - a[1]),2) + Math.pow((b[2] - a[2]),2);
+     ac = Math.pow((c[0]-a[0]),2) + Math.pow((c[1] - a[1]),2) + Math.pow((c[2] - a[2]),2);
+     bc = Math.pow((c[0]-b[0]),2) + Math.pow((c[1] - b[1]),2) + Math.pow((c[2] - b[2]),2);
+
+    if (bc === ab + ac) {
+        document.write("Треугольник прямоугольный");
+    } else
+        document.write("Треугольник не прямоугольный");
+
+</script>
+
+</body>
+</html>

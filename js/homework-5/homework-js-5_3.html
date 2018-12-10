@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* 3 Написать отдельную функцию, которая выводит пользователю
+заданное число чисел Фибоначчи.
+(например, первых 8 чисел Фибоначчи:  1, 1, 2, 3, 5, 8, 13, 21).
+Заданное число передается функции в качестве аргумента.
+Про числа Фибоначчи: https://ru.wikipedia.org/wiki/Числа_Фибоначчи */
+
+    var kol = 8;
+    var fib = [1, 1];
+
+    function fibonachi (x) {
+        for(var i = fib.length; i < x; i++) {
+            fib[i] = fib[i-2] + fib[i-1];
+        }
+        return fib;
+    }
+
+    var f = fibonachi(kol);
+    document.write(f);
+
+</script>
+
+</body>
+</html>

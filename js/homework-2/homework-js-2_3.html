@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* 3. Дан номер месяца (1 — январь,
+2 — февраль, ...). Вывести название
+соответствующего времени года
+("зима", "весна" и т.д.).  */
+
+    var number, time;
+    number = prompt("Введите номер месяца от 1 до 12");
+
+    if (number == 0 || number > 12) {
+        time = "Такого месяца нет";
+    } else if (number == 12 || number < 3 && number !== 0) {
+        time = "Зима";
+    } else if (number >= 3 && number < 6) {
+        time = "Весна";
+    } else if (number >= 6 && number < 9) {
+        time = "Лето";
+    } else if (number >= 9 && number < 12) {
+        time = "Осень";
+    }
+    document.write(time);
+
+</script>
+
+</body>
+</html>

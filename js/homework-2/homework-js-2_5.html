@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+/* 5*. Пользователь вводит строку, необходимо определить
+является ли она палиндромом. (Палиндром - это текст,
+который читается одинаково и слева, и справа.
+Примеры для тестирования:
+1) '49094' – это строка палиндром
+2) 'Я бы изменил мир, но бог не дает исходники' – это строка не палиндром
+3) 'Сел в озере березов лес' – это строка палиндром */
+
+    var str, newString;
+
+    str = prompt("Введи текст и узнай является ли он палиндромом!");
+    newString = str.split("").reverse().join("");
+
+    str = str.replace(/\s+/g, '');
+    newString = newString.replace(/\s+/g, '');
+
+    str = str.toLowerCase();
+    newString = newString.toLowerCase();
+
+    if (str===newString) {
+        document.write("Введенная строка является палиндромом");
+    } else {
+        document.write("Введенная строка не является палиндромом");
+    }
+
+</script>
+
+</body>
+</html>

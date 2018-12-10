@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* Перераспределить значения переменных
+    X и Y так, чтобы в X оказалось меньшее
+    из этих значений, а в Y — большее. */
+
+    var x, y, z;
+
+    x = prompt("Введите значение X");
+    y = prompt("Введите значение Y");
+
+    if (x > y) {
+       z = x;
+       x = y;
+       y = z;
+        document.write("Переменная x =",x);
+        document.write("Переменная y =",y);
+    } else {
+        document.write("Переменная x =",x);
+        document.write("Переменная y =",y);
+    }
+
+</script>
+
+</body>
+</html>

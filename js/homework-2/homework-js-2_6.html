@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* 6 *. Пользователь вводит год, необходимо определить
+является ли он високосным. Примеры данных для тестирования:
+1) '2000' – високосный год
+2) '1800' – не високосный год */
+
+    var year;
+
+    year = prompt("Введи год и узнай високосный он или нет!");
+
+    if(year%4 == 0) {
+        if(year%100 == 0) {
+            if(year%400 == 0) {
+                document.write("Високосный год");
+            }
+            else
+                document.write("Не високосный год");
+        }
+        else
+            document.write("Високосный год");
+    } else
+    document.write("Не високосный год");
+
+</script>
+
+</body>
+</html>

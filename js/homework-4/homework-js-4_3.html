@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* 3. Задан массив  - [12,4,3,10,1,20].
+Удалить из него наименьшее и наибольшее значение. */
+
+    var arr = [12,4,3,10,1,20];
+
+    var max, min;
+
+    max = arr[0];
+    min = arr[0];
+
+    for (i = 0; i < arr.length; i++) {
+        if (min > arr[i]) {
+            min = arr[i];
+        } else if (max < arr[i]) {
+            max = arr[i];
+        }
+    }
+    var index1 = arr.indexOf(max);
+    var index2 = arr.indexOf(min);
+
+    arr.splice(index1, 1);
+    arr.splice(index2, 1);
+
+    document.write(arr);
+</script>
+
+</body>
+</html>

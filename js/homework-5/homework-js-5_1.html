@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* 1 Построить объект студент со свойствами:
+Имя, Фамилия, Возраст, Интересы (в виде массива), Место обучения.
+Написать отдельную функцию, которой передается объект студент,
+а она выводит его содержимое. */
+
+    var men = {
+        name: "Ilya",
+        surname: "Shakhomirov",
+        age: 29,
+        interest: "football, programming",
+        study: "ITMO",
+    
+    };
+
+    function viewObj(x) {
+        var str = '';
+        for (var i in x) {
+            str += i+": " + men[i] + "<br/>\n";
+            //document.write(str);
+        }
+        document.write(str);
+    }
+
+    viewObj(men);
+
+</script>
+
+</body>
+</html>

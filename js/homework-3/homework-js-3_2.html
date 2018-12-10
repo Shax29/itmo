@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  /* 2 Дана строка, изображающая целое число. Вывести сумму цифр этого числа. */
+
+  var arr, str, i, sum;
+
+  sum = 0;
+
+  str = prompt ("Введите число");
+  arr = str.split('');
+
+  for (i = 0; i < arr.length; i++) {
+      sum += Number(arr[i]);
+  }
+
+  document.write(sum);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* 1 Задать размер ипотечного кредита, процентную ставку, кол-во лет . Найти
+переплату по кредиту, значение переплаты вывести пользователю. */
+
+    var credit, procent, year, month, pereplata, platezh, oplata_vsego, i;
+
+    procent = 12;
+
+    credit = prompt("Введите размер ипотечного кредита");
+    year = prompt("Введите срок ипотечного кредита в годах");
+
+    month = year * 12;
+    i = procent/month/100;
+
+    platezh = credit*i*(Math.pow((1+i),month))/(Math.pow((1+i),month)-1);
+
+    oplata_vsego = platezh * month;
+    pereplata = oplata_vsego - credit;
+    pereplata = pereplata.toFixed(0);
+
+    document.write("Ваша переплата составит: ", pereplata);
+
+</script>
+
+
+</body>
+</html>

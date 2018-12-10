@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* 3 Дана строка S и символ C. Удвоить каждое вхождение символа C в строку S. */
+
+    var str, simvol, newString;
+
+    str = "Удвоить каждое вхождение символа!";
+    simvol = "о";
+
+    regexp = new RegExp(simvol, "gi");
+
+    newString = str.replace(regexp, simvol + simvol);
+    document.write(newString);
+
+</script>
+
+</body>
+</html>
