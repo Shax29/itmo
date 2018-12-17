@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+   /* 3 Сделайте функцию, каждый вызов который будет генерировать случайное число
+    от 1 до 100, но так, чтобы оно не повторялось, пока не будут перебраны все
+    числа из этого промежутка. Решите задачу через замыкания - в замыкании должен
+    хранится массив чисел, которые уже были сгенерированы функцией. */
+
+
+   /* function randNumber() {
+        let arrNew  = [];
+        return function() {
+            let new_num = Math.floor(Math.random() * 100 + 1);
+            for (let i = 0; i < arrNew.length; i++) {
+                if (arrNew[i] === new_num) {return}
+            }
+            arrNew.push(new_num);
+        }
+    }
+
+    let func = randNumber();
+    console.log(func); */
+
+
+</script>
+
+<script>
+    function makeRand(num) {
+        var usedNumbers = {length : 0};
+        function f() {
+            if(usedNumbers.length === num) usedNumbers = {length : 0};
+            var i = Math.floor(Math.random() * num);
+            return i in usedNumbers ? f() : (usedNumbers.length++, usedNumbers[i]=true, ++i)
+
+
+        }
+        return f;
+    }
+
+    var x = makeRand(100);
+    document.write(x());
+
+</script>
+
+
+</body>
+</html>
