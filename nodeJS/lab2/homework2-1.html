@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /*1* Напишите функцию get_quadrant_number, которая принимает
+координаты точки X и Y и возвращает номер четверти, которой
+эта точка принадлежит. Помните, что если точка лежит на оси, то
+она не принадлежит ни одной четверти, в этом случаи нужно
+выбросить исключение типа Error без сообщения об ошибке.
+    Y
+2 ║ 1
+═══╬═══X
+3 ║ 4
+
+Тестовые данные для тестирования:
+x = 1, y = 1. Номер четверти: 1
+x = -1, y = 1. Номер четверти: 2
+x = -1, y = -1. Номер четверти: 3
+x = 1, y = -1. Номер четверти: 4
+x = 0, y = 0. Результат: Error
+*/
+
+   /* Вариант 1
+
+    let x,y;
+    let number; // номер четверти
+
+    function get_quadrant_number(x,y) {
+
+        try {
+
+            if (x > 0 && y > 0) {
+                number = 'первая четверть';
+            } else if (x > 0 && y < 0) {
+                number = 'четвертая четверть';
+            } else if (x < 0 && y < 0) {
+                number = 'третья четверть';
+            } else if (x < 0 && y > 0) {
+                number = 'вторая четверть';
+            } else if (x === 0 || y === 0) throw new Error("Error");
+
+        } catch (err) {
+                throw err;
+        }
+
+        return number;
+    }
+
+    let msg = get_quadrant_number(2,-1);
+    console.log(msg);
+    */
+
+
+   /* Вариант 2 */
+    function get_quadrant_number(x,y) {
+        if (x > 0 && y > 0)
+            return 1;
+        if (x < 0 && y > 0)
+            return 2;
+        if (x < 0 && y < 0)
+            return 3;
+        if (x > 0 && y < 0)
+            return 4;
+
+        throw new Error();
+    }
+
+    let msg = get_quadrant_number(2,-1);
+    console.log(msg);
+
+</script>
+
+</body>
+</html>
