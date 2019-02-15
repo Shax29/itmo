@@ -1,0 +1,708 @@
+<div class="container-fluid" style="">
+  <div class="row">
+    <div class="col-md-9">
+       <div class="row">
+         <div class="col-12">
+           <div class="">
+            
+             <nav> 
+       		 	<ul class="breadcrumb" style="background-color: #fff !important;">
+      				<li class="breadcrumb-item"><a href="../index.php" rel="home"> Главная </a></li>
+                  <?php
+                  if($_GET[category_eng] == '' and $_GET[product_eng] == '' and $_GET[id] == '') {
+      				echo "<li class='breadcrumb-item active' aria-current='page'> Каталог </li>";
+                  } else if($_GET[product_eng] == '' and $_GET[category_eng] !== '' and $_GET[id] == '') {
+                    $res = $db->query("SELECT * FROM category WHERE category_eng='$_GET[category_eng]'");
+                    $breadcrumb = mysqli_fetch_assoc($res);
+                    echo "<li class='breadcrumb-item'><a href='../catalog.php'>Каталог</a></li>
+                      <li class='breadcrumb-item'><a href='../catalog.php?product_eng=$breadcrumb[product_eng]'> $breadcrumb[product]</a></li>
+                      <li class='breadcrumb-item active' aria-current='page'> $breadcrumb[category] </li>";
+                  } else if($_GET[product_eng] !== '' and $_GET[category_eng] == '' and $_GET[id] == '') {
+                    $res = $db->query("SELECT * FROM category WHERE product_eng='$_GET[product_eng]'");
+                    $breadcrumb = mysqli_fetch_assoc($res);
+      				echo "<li class='breadcrumb-item'> <a href='../catalog.php'>Каталог</a> </li> 
+                      <li class='breadcrumb-item active' aria-current='page'> $breadcrumb[product]</li>";
+                  } else if($_GET[product_eng] !== '' and $_GET[category_eng] !== '' and $_GET[id] == '') {
+                    $res = $db->query("SELECT * FROM category WHERE category_eng='$_GET[category_eng]'");
+                    $breadcrumb = mysqli_fetch_assoc($res);
+      				echo "<li class='breadcrumb-item'> <a href='../catalog.php'>Каталог</a> </li> 
+                      <li class='breadcrumb-item'> <a href='../catalog.php?product_eng=$breadcrumb[product_eng]'>$breadcrumb[product]</a> </li>
+                      <li class='breadcrumb-item active' aria-current='page'> $breadcrumb[category]</li>"; 
+                  } else if($_GET[product_eng] !== '' and $_GET[category_eng] !== '' and $_GET[id] !== '') {
+                    $res = $db->query("SELECT * FROM tovary WHERE id='$_GET[id]'");
+                    $breadcrumb = mysqli_fetch_assoc($res);
+                    echo "<li class='breadcrumb-item'> <a href='../catalog.php'>Каталог</a> </li>"; 
+                    echo "<li class='breadcrumb-item'> <a href='../catalog.php?product_eng=$breadcrumb[product_eng]'>$breadcrumb[product]</a> </li>";
+                    echo "<li class='breadcrumb-item'> <a href='../catalog.php?product_eng=$breadcrumb[product_eng]&category_eng=$breadcrumb[category_eng]'>$breadcrumb[category]</a> </li>";
+                    echo "<li class='breadcrumb-item active' aria-current='page'> $breadcrumb[nazv] ($breadcrumb[manuf]) </li>";
+                  }
+                  /*if($_GET[nazv_eng] !== '') {
+                     echo "<li class='breadcrumb-item active' aria-current='page'> $_GET[nazv_eng] </li>";
+                  }*/
+                   ?>
+      		 	</ul>
+             </nav>
+             
+       		 <!--<ul class="breadcrumbs">
+      			<li><a href="index.php" rel="home"> Главная </a></li>
+      			<li> Каталог </li>
+      		 </ul>-->
+      
+           <?php  
+            if($_GET[category_eng] == '' and $_GET[product_eng] == '' and $_GET[id] == '') {
+              echo "<h3 style='text-align:center; margin:20px 0px;'>Каталог</h3>";
+            } else if($_GET[product_eng] == '' and $_GET[category_eng] !== '' and $_GET[id] == '') {    
+               echo "<h3 style='text-align:center; margin:20px 0px;'>$breadcrumb[category]</h3>";
+    	    } else if($_GET[product_eng] !== '' and $_GET[category_eng] == '' and $_GET[id] == '') {
+               echo "<h3 style='text-align:center; margin:20px 0px;'>$breadcrumb[product]</h3>";
+            } else if($_GET[product_eng] !== '' and $_GET[category_eng] !== '' and $_GET[id] == '') {
+               echo "<h3 style='text-align:center; margin:20px 0px;'>$breadcrumb[category]</h3>";   
+            } else if($_GET[product_eng] !== '' and $_GET[category_eng] !== '' and $_GET[id] !== '') {
+              echo "<h3 style='text-align:center; margin:20px 0px;'>$breadcrumb[manuf] $breadcrumb[nazv], $breadcrumb[mass] $breadcrumb[unit]. </h3>";
+            }  
+               
+           ?>    
+  
+      		<div class="container">
+   
+<?php
+
+/* Спортивное питание */
+
+/*$res=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Гейнер'");
+      $geiner=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Протеин'");
+      $protein=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Аминокислоты'");
+      $amino=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='BCAA'");
+      $bcaa=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Креатин'");
+      $creatin=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Жиросжигатели'");
+      $fat_burners=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Батончики'");
+      $candy_bar=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Витамины'");
+      $vitamin=mysqli_fetch_assoc($res);*/
+
+          
+/* Экипировка */
+
+/*$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Бандажи'");
+      $bandage=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Бинты'");
+      $bint=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Тяги и крюки'");
+      $traction=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Перчатки мужские'");
+      $gloves_m=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Перчатки женские'");
+      $gloves_w=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Ремни и пояса'");
+      $belt=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Хваты'");
+      $grip=mysqli_fetch_assoc($res);*/
+
+
+/* Одежда */
+
+/*$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Штаны для зала'");
+      $leggings=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Кепки и шапки'");
+      $cap=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Футболки'");
+      $tee_shirt=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Шорты'");
+      $short=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Майки и безрукавки'");
+      $jackets=mysqli_fetch_assoc($res);*/
+
+
+/* Разное */
+
+/*$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Бутылки'");
+      $boutle=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Контейнеры'");
+      $container=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Стаканы'");
+      $cup=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Сумки'");
+      $bag=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Шейкеры'");
+      $shakes=mysqli_fetch_assoc($res);
+
+$sql=$db->query("SELECT COUNT(category) FROM tovary WHERE category='Крема,гели,спреи'");
+      $gel=mysqli_fetch_assoc($res);*/
+
+?>  
+              
+         <?php     
+         if($_GET[category_eng] == '' and $_GET[product_eng] == '' and $_GET[id] == '') {
+           echo "<div class='row' style='margin:0;'>  
+             <div class='col-12 col-sm-6 col-md-6 col-xl-6'> 
+                <div class='katalog_sport_eat'>
+                <h5> Спортивное питание </h5>
+                	<ul>
+                      <li> <a href='../catalog.php?product_eng=sport-eat&category_eng=geiner'>Гейнеры</a> ($geiner[0]) </li>
+                      <li> <a href='../catalog.php?product_eng=sport-eat&category_eng=protein'>Протеин</a> ($protein[0]) </li>
+                      <li> <a href='../catalog.php?product_eng=sport-eat&category_eng=amino'>Аминокислоты</a> ($amino[0]) </li>
+                      <li> <a href='../catalog.php?product_eng=sport-eat&category_eng=bcaa'>ВСАА</a> ($bcaa[0]) </li>
+                      <li> <a href='../catalog.php?product_eng=sport-eat&category_eng=creatin'>Креатин</a> ($creatin[0]) </li>
+                      <li> <a href='../catalog.php?product_eng=sport-eat&category_eng=fat-burner'>Жиросжигатели</a> ($fat_burners[0]) </li>
+                      <li> <a href='../catalog.php?product_eng=sport-eat&category_eng=candy-bar'>Батончики</a> ($candy_bar[0]) </li>
+                      <li> <a href='../catalog.php?product_eng=sport-eat&category_eng=vitamin'>Витамины</a> ($vitamin[0]) </li>
+                	</ul>
+                </div>
+              </div>
+
+              <div class='col-12 col-sm-6 col-md-6 col-xl-6'>
+                <div class='katalog_equipments'>
+                <h5> Экипировка </h5>
+                  <ul>
+                    <li> <a href='../catalog.php?product_eng=equipments&category_eng=bandage'>Бандажи</a> ($bandage[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=equipments&category_eng=bint'>Бинты</a> ($bint[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=equipments&category_eng=traction'>Тяги и крюки</a> ($traction[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=equipments&category_eng=gloves-m'>Перчатки мужские</a> ($gloves_m[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=equipments&category_eng=gloves-w'>Перчатки женские</a> ($gloves_w[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=equipments&category_eng=belt'>Ремни и пояса</a> ($belt[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=equipments&category_eng=grip'>Хваты</a> ($grip[0]) </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class='col-12 col-sm-6 col-md-6 col-xl-6'>
+                <div class='katalog_clothes'>
+                <h5> Одежда </h5>
+                  <ul>
+                    <li> <a href='../catalog.php?product_eng=clothes&category_eng=leggings'>Штаны для зала</a> ($leggings[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=clothes&category_eng=cap'>Кепки и шапки</a> ($cap[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=clothes&category_eng=tee-shirt'>Футболки</a> ($tee_shirt[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=clothes&category_eng=short'>Шорты</a> ($short[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=clothes&category_eng=jackets'>Майки и безрукавки</a> ($jackets[0]) </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class='col-12 col-sm-6 col-md-6 col-xl-6'>
+                <div class='katalog_other'>
+                <h5> Разное </h5>
+                  <ul>
+                    <li> <a href='../catalog.php?product_eng=other&category_eng=boutle'>Бутылки</a> ($boutle[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=other&category_eng=container'>Контейнеры</a> ($container[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=other&category_eng=cup'>Стаканы</a> ($cup[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=other&category_eng=bag'>Сумки</a> ($bag[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=other&category_eng=shakes'>Шейкеры</a> ($shakes[0]) </li>
+                    <li> <a href='../catalog.php?product_eng=other&category_eng=gel'>Крема, гели, спреи</a> ($gel[0]) </li>
+                  </ul>
+                </div>
+             </div>
+            </div>"; 
+           
+           
+          // echo "<div class='row'>";
+           
+           
+          // echo "</div>
+           
+                  
+           
+         } else if($_GET[product_eng] !== '' and $_GET[category_eng] == '' and $_GET[id] == '') {
+           
+           
+           // echo "<h3 style='text-align:center; margin:20px 0px;'>$_GET[product_eng]</h3>";
+           echo "<div class='row'>";
+             
+            $res = $db->query("SELECT * FROM category WHERE product_eng='$_GET[product_eng]'");
+            //$res = $db->query("SELECT * FROM tovary WHERE tovar_week='1' AND product_availability='1' LIMIT 12");
+             
+            //$result = mysqli_query($link, 'SELECT Name, Population FROM City ORDER BY Population DESC LIMIT 5')
+           
+         //for ($i=0;$i<12;$i++) {
+        while($product = mysqli_fetch_assoc($res)){
+          
+          echo "<div class='col-12 col-sm-6 col-md-4 col-xl-3'>
+          
+            <div class='container-fluid'> 
+             <div class='tovar-week' style='margin-bottom:25px;'>
+              <form action='' method='post' class='tovary_week_form'>
+                <div class='item'>
+                 <div class='ikatalog'>
+      
+                    <div class='title_katalog'>     
+                    	<h6 style='text-align:center'> $product[category] </h6> 
+                        <a href='../catalog.php?product_eng=$product[product_eng]&category_eng=$product[category_eng]'>
+                          <img src='../img/category/$product[category_eng].jpg' width='90px' height='130px' /> 
+                        </a>
+					</div>
+                    
+                    <div class='item_katalog'>
+                    	<p> $product[category] – $product[description] <a href='../catalog.php?product_eng=$product[product_eng]&category_eng=$product[category_eng]'> Подробнее </a>
+                        </p> 	
+                    </div>
+      
+      			  </div>
+                </div>
+              </form>
+             </div>        
+            </div>
+                    
+          </div>";
+        }
+          echo "</div>";
+           
+          /* if($_GET[product_eng] == 'sport-eat') {
+           
+           }
+           
+    	   if($_GET[product_eng] == 'equipments') {
+           
+           }
+
+           if($_GET[product_eng] == 'clothes') {
+           
+           }
+           
+           if($_GET[product_eng] == 'other') {
+           
+           } */
+           
+    	 } else if($_GET[product_eng] !== '' and $_GET[category_eng] !== '' and $_GET[id] == '') {
+           
+               //echo "<h3 style='text-align:center; margin:20px 0px;'>$_GET[category_eng]</h3>";
+               echo "<div class='row'>";
+
+                $res = $db->query("SELECT * FROM tovary WHERE nazv_eng='$_GET[category_eng]' AND product_availability='1' ORDER BY id");
+
+              while($category = mysqli_fetch_assoc($res)){
+                if ($category['cena_sale']==0) 
+				{        
+					$bonus=$category['cena']*2/100;
+					$bonus=ceil($bonus);  
+				} else if ($category['cena_sale']!==0) 
+				{
+					$bonus=$category['cena_sale']*2/100;
+					$bonus=ceil($bonus); 
+				}  
+
+                if ($category['mass']=='0') $category['mass']='';  
+                $preference = explode(",", $category[preference]);
+                foreach($preference as $category[preference]) {}
+
+              echo "<div class='col-12 col-sm-6 col-md-4 col-xl-3'>
+
+                <div class='container-fluid'> 
+                 <div class='tovar-week' style='margin-bottom:25px;'>
+                  <form action='' method='post' class='tovary_week_form'>
+                    <div class='item'>
+                     <div class='item-cont'>
+                       <span class='vendor'> $category[manuf] </span>
+                       <div class='picture'>
+                         <a href='../catalog.php?product_eng=$category[product_eng]&category_eng=$category[category_eng]&manuf_eng=$category[manuf]&nazv=$category[nazv]&mass=$category[mass]&id=$category[id]'>
+                            <img src='../photos/$category[photo]' style='height: 100px; margin-left:5px;' />
+                         </a>
+                       </div>
+                       <div class='title_tovar'>
+                        <p>
+                         <a href='../catalog.php?product_eng=$category[product_eng]&category_eng=$category[category_eng]&manuf_eng=$category[manuf]&nazv=$category[nazv]&mass=$category[mass]&id=$category[id]'>$category[nazv] </a>
+                        </p> 
+                       </div>
+                       <div class='price'>
+                       <br/>";
+                    if ($category[cena_sale]!=0) {
+           
+                        echo "<br/><span class='price_tovar'> $category[cena_sale] руб. </span>
+                        <br/><span class='old_price_tovar' > $category[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";
+
+                      } else { 
+
+                        echo "<br/><span class='price_tovar_standart' > $category[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";  
+
+                      }    
+                   echo "</div>
+                       <div>
+                        <span class='summary'> $category[category], $category[mass] $category[unit]. </span>
+                       </div>  
+                     </div>
+                     <div class='buy_tovar'>";
+                      echo "<select name='preference[$category[id]]'>";
+
+                            foreach($preference as $category[preference])
+                                {
+                                    echo "<option value='$category[preference]'>$category[preference]</option>";
+                                }
+                      echo "</select>";
+                     echo "</div>  
+                     <div class='buy_tovar'>  
+                       <div class='amount'>
+                        <span class='minus'>
+                         <div class='amount_minus amount_minus_right'>
+                           <a href='#' class='icon icon-minuss'>–</a>
+                         </div>
+                        </span>
+                     <div class='amount_text'>
+                      <input type='text' value='1' name='kol[$category[id]]' size='5'>
+                     </div>
+                      <span class='plus'>
+                        <div class='amount_plus amount_plus_right'>
+                         <a href='#' class='icon icon-pluss'>+</a>
+                        </div>
+                      </span>
+                     </div>
+                     <div class='buy' id='btn-click'>
+                       <a href='?submit_buy=$category[id]'>
+                        <button name='submit_buy' value='$category[id]' class='btn btn-7 btn-3 btn-icon-only icon-cart'></button>
+                       </a>      
+                     </div>
+                    </div>
+                  </form>
+                 </div>        
+                </div>
+              </div>
+
+              </div>";
+             }
+
+         	echo "</div>";
+    
+    
+         } else if($_GET[product_eng] !== '' and $_GET[category_eng] !== '' and $_GET[id] !== '') {
+           
+           		$res = $db->query("SELECT * FROM tovary WHERE id='$_GET[id]'");
+                while($tov=mysqli_fetch_assoc($res)) {
+
+                   if ($tov['cena_sale']==0)
+                    {
+                        $bonus=$tov['cena']*2/100;
+                        $bonus=ceil($bonus);
+                    } else if ($tov['cena_sale']!==0)
+                    {
+                        $bonus=$tov['cena_sale']*2/100;
+                        $bonus=ceil($bonus);
+                    }
+                  
+                  $preference = explode(",", $tov[preference]);
+    
+           echo "<div class='row'>";
+           
+          // echo "<form action='' method='post' class='tovary_week_form' id='sort'>
+           
+           echo "<div class='col-12 col-sm-12 col-md-4 col-xl-3'>
+             	<div class='big_photo'>
+     				<img src='../photos/$tov[photo]' name='photo' alt='$tov[manuf], $tov[nazv]' />
+     			</div>
+            </div>
+            
+            <div class='col-12 col-sm-12 col-md-8 col-xl-9'>
+            
+                <div class='product_conteiner'> 
+                  <div class='product_info'>
+     
+                   <div class='product_title'>
+                        <span class='title_name'> $tov[manuf], $tov[nazv] </span>";
+                        if ($tov['cena_sale']==0) {
+                          echo '';
+                        } else {
+                        echo "<span class='tovar_of_the_week'> Товар недели! </span>";
+                        }
+                        echo "<br/><span class='title_and_mass' name='title_and_mass'> $tov[category], $tov[mass] $tov[unit]. </span>       
+                   </div>
+     
+                   <div class='product_mini_descript'> 
+                        $tov[mini_opis]       
+                   </div>
+     
+                   <div class='product_price'>";
+                   
+                     if ($tov[cena_sale]!=0) {
+           
+                        echo "<span class='new_price' name='new_price'> Цена со скидкой: $tov[cena_sale] руб. </span>
+                        <br/><span class='old_price' name='old_price'> Старая цена: $tov[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar'> + $bonus бонусов </span>";
+
+                      } else { 
+
+                        echo "<span class='price_tovar_standart' > $tov[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";  
+
+                      } 
+                        /*<span class='new_price' name='new_price'> Цена со скидкой: $tov[cena_sale] руб. </span>
+                        <br/><span class='old_price' name='old_price'> Старая цена: $tov[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar'> + $bonus бонусов </span>*/     
+                   echo "</div>
+     
+    		    </div>
+     
+     			<div class='action_product'>
+    
+                    <div class='amount' style='margin-left:0; margin-right:20px;'>
+                        <span class='minus'>
+                         <div class='amount_minus amount_minus_right'>
+                           <a href='#' class='icon icon-minuss'>–</a>
+                         </div>
+                        </span>
+                         <div class='amount_text'>
+                            <input type='text' value='1' name='kol[$tov[id]]' size='5'>
+                        </div>
+                        <span class='plus'>
+                         <div class='amount_plus amount_plus_right'>
+                          <a href='#' class='icon icon-pluss'>+</a>
+                         </div>
+                        </span>
+                    </div>
+    
+    				<div class='buy_tovar_product'>";
+                       $preference = explode(",", $tov[preference]);
+                       echo "<select name='preference[$tov[id]]'>";
+                    		for($i=0;$i<1;$i++) {
+                        		echo "<option value='$preference[$i]'>$preference[$i]</option>";
+                             }
+                    		/* Выгружаем доступные вкусы (свойства) товара */
+
+                           /* $sql_sklad="SELECT * FROM sklad WHERE photo='$tov[photo]'";
+                            $rez_sklad=mysql_query($sql_sklad);
+                              while($sklad=mysql_fetch_array($rez_sklad))
+                              {
+
+                                  $preference_sklad = explode(",", $sklad['preference']);
+                                  $kol_sklad = explode(",", $sklad['kol']);
+
+                                  for($k=0; $k<count($preference_sklad); $k++) {
+                                      if ($kol_sklad[$k]>0) {
+                                          $preference_sklad[$k]=='';
+                                          $pre[]=$preference_sklad[$k];
+                                      }
+                                  }
+
+                                  foreach($pre as $preference_tov[preference])
+                                  {
+                                      echo "<option value='$preference_tov[preference]'>$preference_tov[preference]</option>";
+                                  }
+                                 
+                               } */ 
+                  
+                              foreach($preference as $tov[preference])
+                                      {
+                                          echo "<option value='$tov[preference]'>$tov[preference]</option>";
+                                      }
+                        echo "</select>";
+                    echo "</div>
+                   
+                    <div class='product_button'>    
+						<a href='?submit_buy=$tov[id]'> 
+                          <button class='buy-product-button' type='submit' name='submit_buy' value='$tov[id]'>
+     						<img src='../img/cart.png' width='20' height='20' style='margin: 0px 5px;' /> Купить
+     			          </button> 
+                        </a>     
+     				</div>
+             	</div>
+                          
+              </div>
+            </div> 
+           
+            <div class='col-12 col-sm-12 col-md-12 col-xl-9'>
+              
+             <div class='product_sklad'>";
+             	/*   СКЛАД  */
+                   //$sql_sklad="SELECT * FROM sklad WHERE id_tov='$_GET[items]'";
+                   //$rez_sklad=mysql_query($sql_sklad);
+                   $res = $db->query("SELECT * FROM sklad WHERE id_tov='$_GET[id]'");
+                   while($sklad=mysqli_fetch_assoc($res))
+                      {
+                       $preference_sklad = explode(',', $sklad[preference]);
+                       $kol_sklad = explode(',', $sklad[kol]);
+           
+            echo "<table class='table_sklad'>
+                  <tr>
+                    <td class='shapka_sklad'> Вкус </td>
+                    <td class='shapka_sklad'> Количество </td>
+                    <td class='shapka_sklad'> Форма выпуска </td>
+                    <td class='shapka_sklad'> Статус </td>
+				  </tr>";
+                   
+                    for ($i=0;$i<count($kol_sklad);$i++) {
+                        if ($kol_sklad[$i]<=0) {
+                           $kol_sklad[$i]=0;
+                           $status='Нет в наличии';
+                        } else $status='В наличии';
+                     
+                  echo "<tr>       
+        			<td class='body_sklad'>$preference_sklad[$i]</td>
+        			<td class='body_sklad'>$kol_sklad[$i] шт.</td>
+        			<td class='body_sklad'>$sklad[release_form]</td>
+        			<td class='body_sklad'>$status</td>
+      			  </tr>";
+                    }      
+               echo "</table>";
+              } 
+           echo "</div>
+                
+            </div> 
+  
+            <div class='col-12'>             
+              <div class='product_description'>
+   				<strong>$tov[nazv]</strong>
+                  <span> - $tov[opis] </span>
+               </div>                   
+            </div>
+             
+            <div class='col-12'>
+               <div class='product_description'>
+                    <strong> Состав и кол-во питательных веществ в одной порции: </strong>";
+    				$sostav = explode(";", $tov[sostav]);
+                        echo "<ul>";
+                        foreach($sostav as $tov[sostav])
+                        {
+                            echo "<li>$tov[sostav]</li>";
+                        }
+                        echo "</ul>";
+                    
+                  echo "<strong style='font-size:16px;'>Ингредиенты:</strong>
+                        <span style=''> $tov[ingredients]</span>
+               </div>
+            </div> 
+            
+            <div class='col-12'>             
+                <div class='application'>
+                   <strong style='font-size:16px;'> Рекомендации по применению: </strong>
+                   <span style=''> $tov[sposob_prim] </span> 
+                </div>
+            </div>"; 
+                                      
+             
+
+        	/* } */        
+     
+       /* Комментарии к товару */
+        echo "<div class='col-12 col-sm-12 col-md-9 col-xl-8'>              
+       		<form method='post' action=''>
+        		<div class='review'>   
+          			<h4> Отзыв о $tov[manuf], $tov[nazv] </h4>          
+              			<div class='rev-area'>
+                          Отзывов о товаре пока никто не оставил
+                        </div>            
+                 </div>
+                            
+          		 <div class='comment'>
+          			<h4> Оставить отзыв </h4>
+                        <div class='username inp-area'>
+            				<label> Имя: <span class='important'>*</span></label>
+            				<input type='text' name='username' for='username' id='username' />   
+                        </div>
+                        <div class='advantage_item inp-area'>
+            			    <label> Достоинства: <span class='important'>*</span></label>
+            				<textarea name='advantage' for='advantage' id='advantage'></textarea>  
+          				</div>
+                        <div id='error_advantage'></div>           
+          				<div class='disadvantage_item inp-area'>
+            				<label> Недостатки: <span class='important'>*</span></label>
+            				<textarea name='disadvantage' for='disadvantage' id='disadvantage'></textarea>  
+          				</div>            
+            			<div id='error_disadvantage'></div>
+            
+                        <div class='comment_item inp-area'>
+                          <label> Комментарий: <span class='important'>*</span> </label>
+                          <textarea name='comment' for='comment' id='comment'> </textarea> 
+                        </div>            
+            			<div id='error_comment'></div>
+            
+                        <div class='comment_item inp-area'> 
+                          <input name='add_com' type='hidden' value='no' id='add_com'>
+                          <input type='submit' name='add_comment' class='add_comment' id='add_comment' value='Добавить'>  
+                        </div>
+                        <div id='success_comment'></div>       
+          			</div>
+           
+             </form>     
+           </div>";
+                }
+           echo "</div>";
+           
+         }
+         
+         ?>
+    
+      	   </div>
+   		</div>     
+      </div>
+	</div>
+</div>
+    <?php require("templates/right-menu.php"); ?>
+</div>
+  </div>
+
+
+<div class="col-md-12"><h3 style="text-align:center; margin:20px 0px;">Наши преимущества</h3>
+    <div class="container">
+       <div class="row"> 
+       
+       <div class="col-md-3">
+        <div class="advantages">
+        <div class="img_advantages"><img src="../img/dolly_1.png" width="55" height="55"></div><div class="text_advantages"> Быстрая доставка </div> 
+        <div class="description_advantages"> Гибкие условия доставки по городу и области. Самовывоз из пунктов выдачи по всему городу. Резерв до 5 дней. 
+        <br><br><a href="send.php" class=""> Читать далее </a>
+        </div>
+       </div>
+       </div>  
+  
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/creditcard_1.png" width="55" height="55"></div><div class="text_advantages"> Способы оплаты </div> 
+       <div class="description_advantages"> Вы можете оплатить товар наличными, безналичным платёжом или электронными деньгами. 
+       <br><br><a href="oplata.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/cart_1.png" width="55" height="55"></div><div class="text_advantages"> Ассортимент </div> 
+       <div class="description_advantages"> В нашем магазине Вы можете приобрести товары как отечественных, так и зарубежных производителей. 
+       <br><br><a href="katalog.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/money_1.png" width="55" height="55"></div><div class="text_advantages"> Цены на товары </div> 
+       <div class="description_advantages"> Вас порадуют цены на товары в нашем магазине. Каждую неделю мы делаем скидки на наиболее популярные товары. 
+       <br><br><a href="sale.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>
+        
+      </div>
+     </div>
+</div>
+
+<div class="container-fluid" style="border:0px solid #222;">
+  <div class="row">
+    <div class="col-md-12" style="margin:0; padding:0;"><h3 style="text-align:center; margin:20px 0px;">Адреса магазинов</h3>
+     <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SBMCoFRtTod7zUZ_Uiq5nC_qNqtHBwjN&width=100%&height=550">        </script>
+    </div>
+  </div>
+</div>  

@@ -1,0 +1,262 @@
+<div class="container-fluid" style="">
+  <div class="row">
+    <div class="col-md-9">
+       <div class="row">
+         <div class="col-12">
+           <div class="">
+            
+             <nav> 
+       		 	<ul class="breadcrumb" style="background-color: #fff !important;">
+      				<li class="breadcrumb-item"><a href="../index.php" rel="home"> Главная </a></li>
+      				<li class="breadcrumb-item active" aria-current="page"> Личный кабинет </li>
+      		 	</ul>
+             </nav>
+             
+       		 <!--<ul class="breadcrumbs">
+      			<li><a href="index.php" rel="home"> Главная </a></li>
+      			<li> Акции </li>
+      		 </ul>-->
+      
+             <h3 style="text-align:center; margin:20px 0px;">Личный кабинет</h3>
+  
+      		<div class="container">
+              
+              <div class="account">
+                  <br>
+                  <ul id="tabs">
+                      <li><a href="#" title="tab1">Персональные данные</a></li>
+                      <li><a href="#" title="tab2">Мои заказы</a></li>  
+                  </ul>
+
+                  <div id="content">
+                    
+                    
+                    <!--<div class="col-12">-->
+                            <?php
+         
+                 			// $sql="SELECT * FROM users WHERE id_users='$_SESSION[id_users]'";
+                 			// $rez=mysql_query($sql);
+                 			// $lk=mysql_fetch_array($rez);
+                      /*
+                  			$lk[date] = date("d.m.Y",strtotime($lk[date]));
+
+                          echo "<form method='post' action=''>   
+                                  
+                                   <label> Имя: </label> <input type='text' name='name' value='$lk[name]'/>     
+                                   <label> Фамилия: </label> <input type='text' name='surname' value='$lk[surname]'/>
+                                   <label> Отчество: </label> <input type='text' name='otchestvo' value='$lk[otchestvo]'/>
+                                   <label> Email: </label> <input type='text' name='email' value='$lk[email]' />
+                                   <label> Телефон: </label> <input type='tel' name='phone' value='$lk[phone]'/>
+                              
+                                   <span>Дата регистрации: &nbsp; $lk[date] г. &nbsp;</span>
+                                
+                              </form>";
+                       */
+                            ?>
+                           <!--</div>-->
+                    
+                    
+                      <div id="tab1">
+                       <form method="post" action=""> 
+                       
+    
+                       <?php
+
+                 // $sql="SELECT * FROM users WHERE id_users='$_SESSION[id_users]'";
+                 // $rez=mysql_query($sql);
+                 // $lk=mysql_fetch_array($rez);
+                  $lk[date] = date("d.m.Y",strtotime($lk[date]));
+
+                    echo "<table border='1px solid'>   
+                           <tr>  
+                             <td> <label> Имя: </label> <input type='text' name='name' value='$lk[name]'/> </td>
+                           </tr>
+
+                           <tr>  
+                             <td> <label> Фамилия: </label> <input type='text' name='surname' value='$lk[surname]'/> </td>
+                           </tr>
+
+                           <tr>  
+                             <td> <label> Отчество: </label> <input type='text' name='otchestvo' value='$lk[otchestvo]'/> </td>
+                           </tr>
+
+                           <tr>  
+                             <td> <label> Email: </label> <input type='text' name='email' value='$lk[email]' /> </td>
+                           </tr>
+
+                           <tr>  
+                             <td> <label> Телефон: </label> <input type='tel' name='phone_account' id='phone_account' value='$lk[phone]'/> </td>
+                           </tr>
+
+                           <tr>  
+                             <td> Дата регистрации: &nbsp; $lk[date] г. &nbsp;  </td>
+                           </tr>
+                        </table>";
+
+                      ?> 
+      
+      <!-- Добьавление и обновление информации о персональных данных пользователя -->
+          
+                      <?php
+                       //!!!!!!!!!!!!!!!!!!!! Если не будет работать редактирование, то убрать email='$_POST[email]', phone='$_POST[phone]' !!!!!!!!!!!!!!!!!!!!!!! 
+                      if($_POST[save])
+                  {
+                      //$sql="UPDATE users SET name='$_POST[name]', surname='$_POST[surname]', otchestvo='$_POST[otchestvo]', email='$_POST[email]', phone='$_POST[phone]' WHERE id_users=$_SESSION[id_users] ";
+                      //mysql_query($sql);
+                        //echo "<script>location.replace('account.php');</script>";
+                      //echo "<script>location.replace('$_SERVER[REQUEST_URI]');</script>";
+                  }
+
+                      ?> 
+      
+                      <?php
+
+              //	$sql="SELECT * FROM zakaz WHERE id_users='$_SESSION[id_users]'";
+              //	$rez=mysql_query($sql);
+              //	$my=mysql_fetch_array($rez);
+
+                      ?>
+      
+                       <p><input id="save_btn" class="btnsubmit disabled" name="save" value="Сохранить" type="submit" > <span style='color:#00B4F0; font-size:24px; margin-left:150px;'> Бонусы:  <? echo $lk['bonus']; ?> руб. </span></p>
+
+
+                       <p style="color:#FF0000; font-size:12px;"> * Все персональные данные, указанные на сайте, носят конфиденциальный характер и не будут переданы третьим лицам. </p>
+        
+        
+        		</form>       
+    		</div>
+                    
+    		<div id="tab2">
+                    <?php
+                    //$sql="SELECT * FROM zakaz WHERE id_user='$_SESSION[id_users]'";
+                    //$rez=mysql_query($sql);
+
+                    if ($zakaz_history[status_oplata]=='1') {
+                    $zakaz_history[status_oplata]='Оплачен';
+                    } else $zakaz_history[status_oplata]='Не оплачен';
+	
+   
+                          echo "<table border='1px solid' class='table_zakaz'> 
+
+                             <tr class='shapka_my_zakaz'>  
+                              <td> Номер заказа </td>
+                              <td> Сумма заказа </td>
+                              <td> Дата заказа </td>
+                              <td> Статус заказа </td>
+                              <td> Действие </td>
+                             </tr>";
+
+                          /* while ($zakaz_history=mysql_fetch_array($rez))
+                      {    
+                             $zakaz_history[date_add] = date("d.m.Y",strtotime($zakaz_history[date_add]));
+                             echo "<tr class='my_zakaz'>  
+                              <td> <a href='../order.php?my_zakaz=$zakaz_history[id_zakaz]'> № $zakaz_history[id_zakaz] </a> </td>
+                              <td> $zakaz_history[stoim] руб. </td>
+                              <td> $zakaz_history[date_add] г. </td>
+                              <td> $zakaz_history[status] </td>";
+
+                            if ($zakaz_history[status_oplata]=='0') {
+
+                              if ($zakaz_history[oplata]=='Безналичный расчёт' or $zakaz_history[oplata]=='Яндекс Деньги' or $zakaz_history[oplata]=='Вэбмани' ) {
+
+                                 echo "<td> <input type='submit' name='oplata' class='oplata_btn' value='Оплатить' /> </td>";
+
+                              } else {
+
+                                echo "<td> </td>";
+                                }
+
+                              } else {
+
+                                echo "<td> </td>";
+
+                            }
+                            echo "</tr>";
+                      } */
+                          echo "</table>";      
+                           ?>   
+               
+    			</div>
+		  </div>
+     </div>        
+      
+<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script>
+$(document).ready(function() {
+	$("#content div").hide(); // Скрываем содержание
+	$("#tabs li:first").attr("id","current"); // Активируем первую закладку
+	$("#content div:first").fadeIn(); // Выводим содержание
+    
+    $('#tabs a').click(function(e) {
+        e.preventDefault();        
+        $("#content div").hide(); //Скрыть все сожержание
+        $("#tabs li").attr("id",""); //Сброс ID
+        $(this).parent().attr("id","current"); // Активируем закладку
+        $('#' + $(this).attr('title')).fadeIn(); // Выводим содержание текущей закладки
+    });
+})();
+</script> 
+   
+      			
+         
+      		</div>
+   		</div>     
+      </div>
+	</div>
+</div>
+    <?php require("templates/right-menu.php"); ?>
+</div>
+  </div>
+
+
+<div class="col-md-12"><h3 style="text-align:center; margin:20px 0px;">Наши преимущества</h3>
+    <div class="container">
+       <div class="row"> 
+       
+       <div class="col-md-3">
+        <div class="advantages">
+        <div class="img_advantages"><img src="../img/dolly_1.png" width="55" height="55"></div><div class="text_advantages"> Быстрая доставка </div> 
+        <div class="description_advantages"> Гибкие условия доставки по городу и области. Самовывоз из пунктов выдачи по всему городу. Резерв до 5 дней. 
+        <br><br><a href="send.php" class=""> Читать далее </a>
+        </div>
+       </div>
+       </div>  
+  
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/creditcard_1.png" width="55" height="55"></div><div class="text_advantages"> Способы оплаты </div> 
+       <div class="description_advantages"> Вы можете оплатить товар наличными, безналичным платёжом или электронными деньгами. 
+       <br><br><a href="oplata.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/cart_1.png" width="55" height="55"></div><div class="text_advantages"> Ассортимент </div> 
+       <div class="description_advantages"> В нашем магазине Вы можете приобрести товары как отечественных, так и зарубежных производителей. 
+       <br><br><a href="katalog.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/money_1.png" width="55" height="55"></div><div class="text_advantages"> Цены на товары </div> 
+       <div class="description_advantages"> Вас порадуют цены на товары в нашем магазине. Каждую неделю мы делаем скидки на наиболее популярные товары. 
+       <br><br><a href="sale.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>
+        
+      </div>
+     </div>
+</div>
+
+<div class="container-fluid" style="border:0px solid #222;">
+  <div class="row">
+    <div class="col-md-12" style="margin:0; padding:0;"><h3 style="text-align:center; margin:20px 0px;">Адреса магазинов</h3>
+     <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SBMCoFRtTod7zUZ_Uiq5nC_qNqtHBwjN&width=100%&height=550">        </script>
+    </div>
+  </div>
+</div>  

@@ -1,0 +1,242 @@
+<footer itemscope itemtype="https://gymland.ru/WPFooter" class="footer">
+   <div class="container-fluid" style="margin-top:20px; background-color: #2d2d2d; border: 1px solid #2d2d2d; padding: 10px 15px;">
+     <div class="col-12 d-none d-xl-block">
+       <div class="row">
+         <!--<h3> Подпишись на акции! </h3>-->
+         <!--<form action="templates/send.php" method="post" class="right_form form_check form_style">-->
+           <!--<div class="col-12 col-sm-12 col-md-12 col-xl-3">
+             <p class="rline" id="rline_footer">
+               <label class="right_label_form" for="user_mail">Подпишись на акции!</label>
+             </p>  
+           </div>
+
+           <div class="col-8 col-sm-8 col-md-9 col-xl-6"> 
+              <p class="rline" id="rline_footer">
+               <input type="email" for="user_mail" name="user_mail" value="Email адрес" onfocus="if (this.value == 'Email адрес') this.value = '';" onblur="if (this.value == '') this.value = 'Email адрес';" class="rfield mailfield" id="user_mail" />
+             </p> 
+           </div>
+           <div class="col-4 col-sm-4 col-md-3 col-xl-3">
+             <p class="rline" id="rline_footer">
+               <input name="js" type="hidden" value="no" id="js" />
+	           <input type="submit" class="btnsubmit_footer" id="sign_up_footer" name="sign_up" value="Подписаться" />
+             </p>  
+           </div>-->
+         
+         <div class="col-3 col-xl-3">
+             <p class="rline" id="rline_footer" style="margin: 20px 0px !important; text-align:right;">
+               <label class="right_label_form" for="user_mail_dekstop">Подпишись на акции!</label>
+             </p>  
+           </div>
+
+         <!--<form method="post">-->
+           <div class="col-6 col-xl-6"> 
+             <form method="post" action="../php/send_dekstop.php">
+              <p class="rline" id="rline_footer" style="margin: 20px 0px !important;">
+               <input type="email" for="user_mail_dekstop" name="user_mail_dekstop" value="Email адрес" onfocus="if (this.value == 'Email адрес') this.value = '';" onblur="if (this.value == '') this.value = 'Email адрес';" class="rfield mailfield" id="user_mail_dekstop" />
+              </p> 
+              <div id="error_mail_dekstop" style="display: none;"></div>
+              <!--<p class="rline" id="rline_footer" style="margin: 20px 0px !important; text-align:left;">
+               <input name="js" type="hidden" value="no" id="js" />
+	           <input type="submit" class="btnsubmit_footer" id="sign_up_footer" name="sign_up" value="Подписаться" style="margin:0px !important;" />
+              </p> --> 
+            </form>
+           </div>
+           <div class="col-3 col-xl-3">
+             <p class="rline" id="rline_footer" style="margin: 20px 0px !important; text-align:left;">
+               <input name="btn_dekstop" type="hidden" value="no" id="btn_dekstop" />
+	           <input type="submit" class="my-btn btnsubmit_footer" id="sign_up_footer_dekstop" name="sign_up" value="Подписаться" style="margin:0px !important;" />
+             </p>  
+           </div>
+           <div id="success_dekstop" style="display: none;"></div>
+         <!--</form>-->
+       </div>
+     </div>
+         
+         <div class="col-12 d-block d-xl-none">
+       <div class="row">
+         
+         <div class="col-12 col-sm-12 col-md-12">
+             <p class="rline" id="rline_footer">
+               <label class="right_label_form" for="user_mail_mobile">Подпишись на акции!</label>
+             </p>  
+           </div>
+
+           <div class="col-6 col-sm-9 col-md-10" style="margin:0 auto; padding:0;">
+             <form method="post" action="../php/send_mobile.php">
+              <p class="rline" id="rline_footer" style="margin: 0xp 0px 1rem 0px !important;">
+               <input type="email" for="user_mail_mobile" name="user_mail_mobile" value="Email адрес" onfocus="if (this.value == 'Email адрес') this.value = '';" onblur="if (this.value == '') this.value = 'Email адрес';" id="user_mail_mobile" />
+              </p> 
+              <div id="error_mail_mobile" style="display: none;"></div> 
+              <!--<p class="rline" id="rline_footer" style="margin: 0xp 0px 1rem 0px !important;">
+               <input name="js" type="hidden" value="no" id="js" />
+	           <input type="submit" class="btnsubmit_footer" id="sign_up_footer" name="sign_up" value="Подписаться" />
+             </p>-->  
+             </form>  
+           </div>
+           <div class="col-6 col-sm-3 col-md-2" style="margin:0 auto; padding:0;">
+             <p class="rline" id="rline_footer" style="margin: 0xp 0px 1rem 0px !important;">
+               <input name="btn_mobile" type="hidden" value="no" id="btn_mobile" />
+	           <input type="submit" class="my-btn btnsubmit_footer" id="sign_up_footer_mobile" name="sign_up" value="Подписаться" />
+             </p>  
+           </div> 
+           <div id="success_mobile" style="display: none;"></div>
+         
+         <!--</form>-->  
+       </div>  
+       <!--<div class="mail">
+          <div class="mail-footer">         
+            <form action="templates/send.php" method="post" class="right_form form_check form_style">      
+             <p class="rline" id="rline_footer">
+              <label class="right_label_form" for="user_mail">Подпишись на акции!</label>         
+              <input type="email" for="user_mail" name="user_mail" value="Email адрес" onfocus="if (this.value == 'Email адрес') this.value = '';" onblur="if (this.value == '') this.value = 'Email адрес';" class="rfield mailfield" id="user_mail" />
+             
+             <input name="js" type="hidden" value="no" id="js" />
+	         <input type="submit" class="btnsubmit_footer" id="sign_up_footer" name="sign_up" value="Подписаться" />              
+             </p>
+             <div id="success"></div>
+            </form>
+          </div>     
+       </div>-->
+     </div>
+   </div>
+  <div class="container-fluid" style="background-color: #3E3E3F;">
+     <div class="row">
+       <div class="container" style="">
+       <!--<div class="col-md-12">Подписаться на акции</div>-->
+       <div class="col-md-12">
+         <div class="row">
+           
+           <div class="col-md-2">
+             <div class="footer-menu-content">
+               <h6> Меню </h6>      
+                <ul class="footer-menu">
+                 <li> <a href="../index.php"> Главная </a> </li>
+                 <li> <a href="../catalog.php"> Каталог </a> </li>
+                 <li> <a href="../delivery.html"> Доставка </a> </li>
+                 <li> <a href="../payment.html"> Оплата </a> </li>
+                 <li> <a href="../stock.html"> Акции </a> </li>
+                 <li> <a href="../bonus.html"> Бонусы </a> </li>
+                 <li> <a href="../contact.html"> Контакты </a> </li>
+                </ul>      
+             </div>
+           </div> 
+           <div class="col-md-2 d-none d-md-block">
+             <div class="footer-menu-content">               
+               <h6> Питание </h6>
+                 <ul class="footer-menu">
+                   <li> <a href="../catalog.php?product_eng=sport-eat&category_eng=geiner">Гейнеры</a> </li>
+                   <li> <a href="../catalog.php?product_eng=sport-eat&category_eng=protein">Протеин</a> </li>
+                   <li> <a href="../catalog.php?product_eng=sport-eat&category_eng=amino">Аминокислоты</a> </li>
+                   <li> <a href="../catalog.php?product_eng=sport-eat&category_eng=bcaa">ВСАА</a> </li>
+                   <li> <a href="../catalog.php?product_eng=sport-eat&category_eng=creatin">Креатин</a> </li>
+                   <li> <a href="../catalog.php?product_eng=sport-eat&category_eng=fat-burner">Жиросжигатели</a> </li>
+                   <li> <a href="../catalog.php?product_eng=sport-eat&category_eng=candy-bar">Батончики</a> </li>
+                   <li> <a href="../catalog.php?product_eng=sport-eat&category_eng=vitamin">Витамины</a> </li>
+                   <li> <a href="../kit.php">Наборы</a> </li>
+                   <li> <a href="../new.html">Новинки</a> </li>
+                 </ul>      
+             </div>
+           </div> 
+           <div class="col-md-2 d-none d-md-block">
+             <div class="footer-menu-content">               
+               <h6> Производители </h6>
+                 <ul class="footer-menu">
+                   <li> <a href="../brands.php?manuf_eng=Optimum Nutrition">Optimum Nutrition</a> </li>
+                   <li> <a href="../brands.php?manuf_eng=BSN">BSN</a> </li>
+                   <li> <a href="../brands.php?manuf_eng=Power System">Power System</a> </li>
+                   <li> <a href="../brands.php?manuf_eng=Weider">Weider</a> </li>
+                   <li> <a href="../brands.php?manuf_eng=Multipower">Multipower</a> </li>
+                   <li> <a href="../brands.php?manuf_eng=QNT">QNT</a> </li>
+                   <li> <a href="../brands.html?manuf_eng=Ultimate Nutrition">Ultimate Nutrition</a> </li>
+                   <li> <a href="../brands.php?manuf_eng=MuscleTech">MuscleTech</a> </li>
+                   <li> <a href="../brands.php?manuf_eng=SAN">SAN</a> </li>
+                   <li> <a href="../brands.php?manuf_eng=VP Lab">VP Lab</a> </li>
+                   <li> <a href="../brands.php">Все производители</a> </li>                
+                  </ul>  
+             </div>
+           </div>
+           <div class="col-md-2 d-none d-md-block">
+             <div class="footer-menu-content">
+               <h6> Одежда </h6>      
+                 <ul class="footer-menu"> 
+                   <li> <a href="../catalog.php?product_eng=clothes&category_eng=leggings">Штаны для зала</a> </li>
+                   <li> <a href="../catalog.php?product_eng=clothes&category_eng=cap">Кепки и шапки</a> </li>
+                   <li> <a href="../catalog.php?product_eng=clothes&category_eng=tee-shirt">Футболки</a> </li>
+                   <li> <a href="../catalog.php?product_eng=clothes&category_eng=short">Шорты</a> </li>
+                   <li> <a href="../catalog.php?product_eng=clothes&category_eng=jackets">Майки и безрукавки</a> </li>
+                 </ul>
+             </div>  
+           </div>
+           <div class="col-md-2 d-none d-md-block">
+             <div class="footer-menu-content">
+               <h6> Экипировка </h6>   
+                 <ul class="footer-menu">
+                   <li> <a href="../catalog.php?product_eng=equipments&category_eng=bandage">Бандажи</a> </li>
+                   <li> <a href="../catalog.php?product_eng=equipments&category_eng=bint">Бинты</a> </li>
+                   <li> <a href="../catalog.php?product_eng=equipments&category_eng=traction">Тяги и крюки</a> </li>
+                   <li> <a href="../catalog.php?product_eng=equipments&category_eng=gloves-m">Перчатки мужские</a> </li>
+                   <li> <a href="../catalog.php?product_eng=equipments&category_eng=gloves-w">Перчатки женские</a> </li>
+                   <li> <a href="../catalog.php?product_eng=equipments&category_eng=belt">Ремни и пояса</a> </li>
+                   <li> <a href="../catalog.php?product_eng=equipments&category_eng=grip">Хваты</a> </li>               
+                 </ul>
+             </div>
+           </div> 
+           <div class="col-md-2 d-none d-md-block">
+             <div class="footer-menu-content">             
+               <h6> Разное </h6> 
+                 <ul class="footer-menu"> 
+                  <li> <a href="../catalog.php?product_eng=other&category_eng=bottle">Бутылки</a> </li>
+                  <li> <a href="../catalog.php?product_eng=other&category_eng=container">Контейнеры</a> </li>
+                  <li> <a href="../catalog.php?product_eng=other&category_eng=cup">Стаканы</a> </li>
+                  <li> <a href="../catalog.php?product_eng=other&category_eng=bag">Сумки</a> </li>
+                  <li> <a href="../catalog.php?product_eng=other&category_eng=shakes">Шейкеры</a> </li>
+                  <li> <a href="../catalog.php?product_eng=other&category_eng=gel">Крема, гели, спреи</a> </li>
+                 </ul>
+             </div>
+           </div> 
+           
+         </div>  
+       </div>
+       <div class="col-md-12">
+         <div class="row">
+           <div class="col-md-4">
+             <div class="footer-menu-content">
+               <h6> Связаться с нами: </h6>
+                <div class="footer_contact">
+                  <span class="contact_tel_footer"><a href="tel:88129721612">8 (812) 972-16-12 </a></span>
+                 <br><b style="color:#FFF; font-size:15px;"><img src="../img/skype_variation.png" style="margin:3px 0px" /></b>
+                 <span class="contact-tel-info">&nbsp; <a href="skype:Gymland?call" title="Позвонить по Скайп!">gymland-shop</a></span>
+                 <br><b style="color:#FFF;font-size:15px;"><img src="../img/email_32.png" width="32" height="32" style="margin:3px 0px" /></b>
+                 <span class="contact-tel-info">&nbsp; <a href="mailto:gymland@shop.ru" title="Почта для связи">gymland@shop.ru</a></span>
+                </div>
+              </div>
+           </div>
+           <div class="col-md-4">
+             <div class="footer-menu-content">
+              <h6> Мы принимаем к оплате: </h6> 
+               <img src="../img/mastercard.png" />
+               <img src="../img/maestro.png" />
+               <img src="../img/visa.png" />
+               <img src="../img/webmoney.png" />
+               <img src="../img/yandex-money.png" />
+               <img src="../img/qiwi.png" />      
+              </div>
+           </div>            
+           <div class="col-md-4">
+             <div class="footer-menu-content" style="text-align:center;">
+              <h6> Оставить отзыв о нас на:  </h6>
+               <a href="#" title="Отзывы на Яндекс маркете"> <img src="../img/yyyy.png" width="80" height="40" /></a>&nbsp;      
+             </div>
+           </div>
+         </div>   
+       </div>
+         
+       <a href="#" class="scrollTop" title="Вверх" style="z-index: 9999;">  </a>
+       
+       <div class="col-md-12" style="color:#FFF; font-size:13px; margin:15px 0px;"> 
+         © Copyright, 2016 г. Gymland.ru - интернет-магазин спортивного питания,одежды и аксессуаров для бодибилдинга. Все права защищены.  
+       </div>
+       </div>  
+     </div>  
+  </div>
+</footer>  

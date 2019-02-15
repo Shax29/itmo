@@ -1,0 +1,400 @@
+<div class="container-fluid" style="">
+  <div class="row">
+    <div class="col-md-9">
+       <div class="row">
+         <div class="col-12">
+           <div class="">
+            
+             <nav> 
+       		 	<ul class="breadcrumb" style="background-color: #fff !important;">
+      				<li class="breadcrumb-item"><a href="../index.php" rel="home"> Главная </a></li>
+                  <?php
+                  if($_GET[manuf_eng] == '') {
+      				echo "<li class='breadcrumb-item active' aria-current='page'> Производители </li>";
+                  } else if($_GET[manuf_eng] !== '') {
+                    echo "<li class='breadcrumb-item'><a href='../brands.php'> Производители </a> </li>";
+                    echo "<li class='breadcrumb-item active'> $_GET[manuf_eng] </li>";
+                  }
+                  
+                   ?>
+      		 	</ul>
+             </nav>
+             
+       		 <!--<ul class="breadcrumbs">
+      			<li><a href="index.php" rel="home"> Главная </a></li>
+      			<li> Каталог </li>
+      		 </ul>-->
+      
+           <?php  
+            if($_GET[manuf_eng] == '') {
+              echo "<h3 style='text-align:center; margin:20px 0px;'>Производители</h3>";
+            } else if($_GET[manuf_eng] !== '') {    
+               echo "<h3 style='text-align:center; margin:20px 0px;'>$_GET[manuf_eng]</h3>";
+    	    } 
+           ?>    
+  
+      		<div class="container">
+   
+<?php
+
+
+?>  
+              
+         <?php     
+         if($_GET[manuf_eng] == '') {
+           echo "<div class='row'>";
+           echo "<div class='col-12 col-sm-4 col-md-4 col-xl-3'>
+            
+                 <h3>1,2,3</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=6 Pack Fitness'>6 Pack Fitness</a>&nbsp;<span>($PackFitness[0])</span></div>
+					</div>					
+                 <h3>A</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Active Waters'>Active Waters</a>&nbsp;<span>($ActiveWaters[0])</span></div>
+					    <div><a href='../brands.php?manuf_eng=Adelholzener'>Adelholzener</a>&nbsp;<span>($Adelholzener[0])</span></div>							                			   <div><a href='../brands.php?manuf_eng=Allmax Nutrition'>Allmax Nutrition</a>&nbsp;<span>($AllmaxNutrition[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Anna Nova Nutrition'>Anna Nova Nutrition</a>&nbsp;<span>($AnnaNovaNutrition[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Arnold Series'>Arnold Series</a>&nbsp;<span>($ArnoldSeries[0])</span></div>
+					    <div><a href='../brands.php?manuf_eng=ArtLab'>ArtLab</a>&nbsp;<span>($ArtLab[0])</span></div>
+					    <div><a href='../brands.php?manuf_eng=Atlet Power'>Atlet Power</a>&nbsp;<span>($AtletPower[0])</span></div>
+					    <div><a href='../brands.php?manuf_eng=Axis Labs'>Axis Labs</a>&nbsp;<span>($AxisLabs[0])</span></div>
+					</div>					
+                 <h3>B</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.html?manuf_eng=BeFirst'>BeFirst</a>&nbsp;<span>($BeFirst[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Better Bodies'>Better Bodies</a>&nbsp;<span>($BetterBodies[0])</span></div>
+						<div><a href='../brands.html?manuf_eng=Blender Bottle'>Blender Bottle</a>&nbsp;<span>($BlenderBottle[0])</span></div>
+						<div><a href='../brands.html?manuf_eng=BSN'>BSN</a>&nbsp;<span>($bsn[0])</span></div>
+					</div>					
+                 <h3>C</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=C.Hedenkamp'>C.Hedenkamp</a>&nbsp;<span>($C_Hedenkamp[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Cellucor'>Cellucor</a>&nbsp;<span>($Cellucor[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=CycloneCup'>CycloneCup</a>&nbsp;<span>($CycloneCup[0])</span></div>
+						<div><a href='../brands.html?manuf_eng=CytoSport'>CytoSport</a>&nbsp;<span>($CytoSport[0])</span></div>
+					</div>					
+                 <h3>D</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Detour'>Detour</a>&nbsp;<span>($Detour[0])</span></div>
+					    <div><a href='../brands.php?manuf_eng=Dymatize Nutrition'>Dymatize Nutrition</a>&nbsp;<span>($DymatizeNutrition[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Dynamic Development'>Dynamic Development</a>&nbsp;<span>($DynamicDevelopment[0])</span></div>
+					</div>					
+                 <h3>F</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=FFB'>FFB</a>&nbsp;<span>($FFB[0])</span></div>
+                        <div><a href='../brands.php?manuf_eng=Fit Foods'>Fit Foods</a>&nbsp;<span>($FitFoods[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=FitnessBar.ru'>FitnessBar.ru</a>&nbsp;<span>($FitnessBar[0])</span></div>
+					</div>					
+                 <h3>G</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=GASP'>GASP</a>&nbsp;<span>($GASP[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Gaspari'>Gaspari Nutrition</a>&nbsp;<span>($GaspariNutrition[0])</span></div>
+						<div><a href='../brands.html?manuf_eng=Genetic Force'>Genetic Force</a>&nbsp;<span>($GeneticForce[0])</span></div>      							        				   <div><a href='../brands.php?manuf_eng=Gorilla Wear'>Gorilla Wear</a>&nbsp;<span>($GorillaWear[0])</span></div>
+				    </div>					
+                 <h3>H</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Hardlabz'>Hardlabz</a>&nbsp;<span>($Hardlabz[0])</span></div>
+					</div>
+               </div>";
+           
+               echo "<div class='col-12 col-sm-4 col-md-4 col-xl-3'>     
+                 <h3>I</h3>
+					<div class='letter_box'>             
+                        <div><a href='../brands.php?manuf_eng=Ice Power'>Ice Power</a>&nbsp;<span>($IcePower[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Inkospor'>Inkospor</a>&nbsp;<span>($Inkospor[0])</span></div>
+                        <div><a href='../brands.php?manuf_eng=Inner Armour'>Inner Armour</a>&nbsp;<span>($InnerArmour[0])</span></div>
+						<div><a href='../brands.html?manuf_eng=Inzer'>Inzer</a>&nbsp;<span>($Inzer[0])</span></div>
+					</div>					
+                  <h3>J</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Junior'>Junior (Юниор)</a>&nbsp;<span>($Junior[0])</span></div>
+					</div>      
+                  <h3>L</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.html?manuf_eng=Labrada Nutrition'>Labrada Nutrition</a>&nbsp;<span>($LabradaNutrition[0])</span></div>
+                        <div><a href='../brands.php?manuf_eng=Lady Fitness'>Lady Fitness</a>&nbsp;<span>($LadyFitness[0])</span></div>
+					    <div><a href='../brands.php?manuf_eng=LennyLarry'>Lenny&amp;Larry</a>&nbsp;<span>($LennyLarry[0])</span></div>
+					</div>					
+                  <h3>M</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Mad Max'>Mad Max</a>&nbsp;<span>($MadMax[0])</span></div>
+					    <div><a href='../brands.php?manuf_eng=Magnum'>Magnum</a>&nbsp;<span>($Magnum[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Maxim'>Maxim</a>&nbsp;<span>($Maxim[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=MHP'>MHP</a>&nbsp;<span>($MHP[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Multipower'>Multipower</a>&nbsp;<span>($Multipower[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=MuscleFitness'>Muscle &amp; Fitness</a>&nbsp;<span>($MuscleFitness[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Muscle Army'>Muscle Army</a>&nbsp;<span>($MuscleArmy[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=MuscleTech'>MuscleTech</a>&nbsp;<span>($MuscleTech[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Muscular Development'>Muscular Development</a>&nbsp;<span>($MuscularDevelopment[0])</span></div>
+					</div>
+                  <h3>N</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Natrol'>Natrol</a>&nbsp;<span>($Natrol[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Natures Best'>Nature's Best</a>&nbsp;<span>($NaturesBest[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Neksportek'>Neksportek</a>&nbsp;<span>($Neksportek[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=NOVO'>NOVO Nutrition</a>&nbsp;<span>($NovoNutrition[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=NOW Foods'>NOW Foods</a>&nbsp;<span>($NowFoods[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Nutrex'>Nutrex</a>&nbsp;<span>($Nutrex[0])</span></div>
+					</div>					
+                  <h3>O</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Olimp'>Olimp</a>&nbsp;<span>($Olimp[0])</span></div>
+					    <div><a href='../brands.php?manuf_eng=Optimum Nutrition'>Optimum Nutrition</a>&nbsp;<span>($OptimumNutrition[0])</span></div>
+					</div>					  
+                  <h3>P</h3>
+					<div class='letter_box'>
+					    <div><a href='../brands.php?manuf_eng=PhD Nutrition'>PhD Nutrition</a>&nbsp;<span>($PhDNutrition[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Power System'>Power System</a>&nbsp;<span>($PowerSystem[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=ProSupps'>ProSupps</a>&nbsp;<span>($ProSupps[0])</span></div>
+						<div><a href='../brands.html?manuf_eng=Pure Protein'>Pure Protein</a>&nbsp;<span>($PureProtein[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=PVL'>PVL</a>&nbsp;<span>($PVL[0])</span></div>
+					</div>  
+                </div>";    
+                                    
+                echo "<div class='col-12 col-sm-4 col-md-4 col-xl-3'>                    
+                  					
+                  <h3>Q</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=QNT'>QNT</a>&nbsp;<span>($QNT[0])</span></div>
+						<div><a href='../brands.html?manuf_eng=Quest Nutrition'>Quest Nutrition</a>&nbsp;<span>($QuestNutrition[0])</span></div>
+					</div>					
+                  <h3>R</h3>
+					<div class='letter_box'>
+					    <div><a href='../brands.php?manuf_eng=RLine'>RLine</a>&nbsp;<span>($RLine[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Ronnie Coleman'>Ronnie Coleman</a>&nbsp;<span>($RonnieColeman[0])</span></div>
+				    </div>
+                  <h3>S</h3>
+					<div class='letter_box'>
+					    <div><a href='../brands.php?manuf_eng=Sabo'>Sabo</a>&nbsp;<span>($Sabo[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=SAN'>SAN</a>&nbsp;<span>($SAN[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Schiek'>Schiek</a>&nbsp;<span>($Schiek[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Scitec Nutrition'>Scitec Nutrition</a>&nbsp;<span>($ScitecNutrition[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Scivation'>Scivation</a>&nbsp;<span>($Scivation[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Sportinia'>Sportinia</a>&nbsp;<span>($Sportinia[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Sportpit>Sportpit</a>&nbsp;<span>($Sportpit[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=ST'>ST</a>&nbsp;<span>($ST[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Stacker Europe BV'>Stacker Europe BV</a>&nbsp;<span>($StackerEuropeBV[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Supreme Protein'>Supreme Protein</a>&nbsp;<span>($SupremeProtein[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Syntrax'>Syntrax</a>&nbsp;<span>($Syntrax[0])</span></div>
+					</div>
+                    <h3>T</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Titan Support Systems'>Titan Support Systems</a>&nbsp;<span>($TitanSupportSystems[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Twinlab'>Twinlab</a>&nbsp;<span>($Twinlab[0])</span></div>
+					</div>					
+                  <h3>U</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Ultimate Nutrition'>Ultimate Nutrition</a>&nbsp;<span>($UltimateNutrition[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=Universal Nutrition'>Universal Nutrition</a>&nbsp;<span>($UniversalNutrition[0])</span></div>
+						<div><a href='../brands.php?manuf_eng=USPlabs'>USPlabs</a>&nbsp;<span>($USPlabs[0])</span></div>	
+                    </div>         
+                  <h3>V</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=VP Lab'>VP Lab</a>&nbsp;<span>($VPLab[0])</span></div>
+					</div>		
+                  <h3>W</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Weider'>Weider</a>&nbsp;<span>($Weider[0])</span></div>
+					</div>				
+                  <h3>X</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.html?manuf_eng=XXI Power'>XXI Power</a>&nbsp;<span>($XXIPower[0])</span></div>
+					</div>	
+                 </div>";  
+                 
+                 echo "<div class='col-12 col-sm-4 col-md-4 col-xl-3'>
+                  <h3>Б</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Байкалика'>Байкалика</a>&nbsp;<span>($Baikalika[0])</span></div>
+					</div>
+                  <h3>Г</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Геркулесъ'>Геркулесъ</a>&nbsp;<span>($Hercules[0])</span></div>
+					</div>				
+                  <h3>Е</h3>
+					<div class='letter_box'>
+				     	<div><a href='../brands.php?manuf_eng=ЕвроФармСпорт'>ЕвроФармСпорт</a>&nbsp;<span>($EuroFarmSport[0])</span></div>
+					</div>
+                  <h3>Ж</h3>
+					<div class='letter_box'>
+			     		<div><a href='../brands.html?manuf_eng=Железный Мир'>Железный Мир</a>&nbsp;<span>($ZhelezniyMir[0])</span></div>
+					</div>				
+                  <h3>И</h3>
+					<div class='letter_box'>
+						<div><a href='../brands.php?manuf_eng=Интер-С'>Интер-С</a>&nbsp;<span>($InterC[0])</span></div>
+                    </div>
+   
+			  </div>";
+           echo "</div>";
+           
+          // echo "<div class='row'>";
+           
+           
+          // echo "</div>
+           
+                  
+           
+         } else if($_GET[manuf_eng] !== '') {
+           
+               //echo "<h3 style='text-align:center; margin:20px 0px;'>$_GET[category_eng]</h3>";
+               echo "<div class='row'>";
+
+                $res = $db->query("SELECT * FROM tovary WHERE manuf='$_GET[manuf_eng]' AND product_availability='1' ORDER BY id");
+
+              while($brand = mysqli_fetch_assoc($res)){
+                if ($brand['cena_sale']==0) 
+				{        
+					$bonus=$brand['cena']*2/100;
+					$bonus=ceil($bonus);  
+				} else if ($brand['cena_sale']!==0) 
+				{
+					$bonus=$brand['cena_sale']*2/100;
+					$bonus=ceil($bonus); 
+				}  
+
+                if ($brand['mass']=='0') $brand['mass']='';  
+                $preference = explode(",", $brand[preference]);
+                foreach($preference as $brand[preference]) {}
+
+              echo "<div class='col-12 col-sm-4 col-md-4 col-xl-3'>
+
+                <div class='container-fluid'> 
+                 <div class='tovar-week' style='margin-bottom:25px;'>
+                  <form action='' method='post' class='tovary_week_form'>
+                    <div class='item'>
+                     <div class='item-cont'>
+                       <span class='vendor'> $brand[manuf] </span>
+                       <div class='picture'>
+                         <a href='../catalog.php?product_eng=$brand[product_eng]&category_eng=$brand[category_eng]&manuf_eng=$brand[manuf]&nazv=$brand[nazv]&mass=$brand[mass]&id=$brand[id]'>
+                            <img src='../photos/$brand[photo]' style='height: 100px; margin-left:5px;' />
+                         </a>
+                       </div>
+                       <div class='title_tovar'>
+                        <p>
+                         <a href='../catalog.php?product_eng=$brand[product_eng]&category_eng=$brand[category_eng]&manuf_eng=$brand[manuf]&nazv=$brand[nazv]&mass=$brand[mass]&id=$brand[id]'>$brand[nazv] </a>
+                        </p> 
+                       </div>
+                       <div class='price'>
+                       <br/>";
+                    if ($brand[cena_sale]!=0) {
+           
+                        echo "<br/><span class='price_tovar'> $brand[cena_sale] руб. </span>
+                        <br/><span class='old_price_tovar' > $brand[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";
+
+                      } else { 
+
+                        echo "<br/><span class='price_tovar_standart' > $brand[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";  
+
+                      }    
+                   echo "</div>
+                       <div>
+                        <span class='summary'> $brand[category], $brand[mass] $brand[unit]. </span>
+                       </div>  
+                     </div>
+                     <div class='buy_tovar'>";
+                      echo "<select name='preference[$brand[id]]'>";
+
+                            foreach($preference as $brand[preference])
+                                {
+                                    echo "<option value='$brand[preference]'>$brand[preference]</option>";
+                                }
+                      echo "</select>";
+                     echo "</div>  
+                     <div class='buy_tovar'>  
+                       <div class='amount'>
+                        <span class='minus'>
+                         <div class='amount_minus amount_minus_right'>
+                           <a href='#' class='icon icon-minuss'>–</a>
+                         </div>
+                        </span>
+                     <div class='amount_text'>
+                      <input type='text' value='1' name='kol[$brand[id]]' size='5'>
+                     </div>
+                      <span class='plus'>
+                        <div class='amount_plus amount_plus_right'>
+                         <a href='#' class='icon icon-pluss'>+</a>
+                        </div>
+                      </span>
+                     </div>
+                     <div class='buy' id='btn-click'>
+                       <a href='?submit_buy=$brand[id]'>
+                        <button name='submit_buy' value='$brand[id]' class='btn btn-7 btn-3 btn-icon-only icon-cart'></button>
+                       </a>      
+                     </div>
+                    </div>
+                  </form>
+                 </div>        
+                </div>
+              </div>
+
+              </div>";
+             }
+
+         	echo "</div>";
+         }
+         
+         ?>
+    
+      	   </div>
+   		</div>     
+      </div>
+	</div>
+</div>
+    <?php require("templates/right-menu.php"); ?>
+</div>
+  </div>
+
+
+<div class="col-md-12"><h3 style="text-align:center; margin:20px 0px;">Наши преимущества</h3>
+    <div class="container">
+       <div class="row"> 
+       
+       <div class="col-md-3">
+        <div class="advantages">
+        <div class="img_advantages"><img src="../img/dolly_1.png" width="55" height="55"></div><div class="text_advantages"> Быстрая доставка </div> 
+        <div class="description_advantages"> Гибкие условия доставки по городу и области. Самовывоз из пунктов выдачи по всему городу. Резерв до 5 дней. 
+        <br><br><a href="send.php" class=""> Читать далее </a>
+        </div>
+       </div>
+       </div>  
+  
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/creditcard_1.png" width="55" height="55"></div><div class="text_advantages"> Способы оплаты </div> 
+       <div class="description_advantages"> Вы можете оплатить товар наличными, безналичным платёжом или электронными деньгами. 
+       <br><br><a href="oplata.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/cart_1.png" width="55" height="55"></div><div class="text_advantages"> Ассортимент </div> 
+       <div class="description_advantages"> В нашем магазине Вы можете приобрести товары как отечественных, так и зарубежных производителей. 
+       <br><br><a href="katalog.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/money_1.png" width="55" height="55"></div><div class="text_advantages"> Цены на товары </div> 
+       <div class="description_advantages"> Вас порадуют цены на товары в нашем магазине. Каждую неделю мы делаем скидки на наиболее популярные товары. 
+       <br><br><a href="sale.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>
+        
+      </div>
+     </div>
+</div>
+
+<div class="container-fluid" style="border:0px solid #222;">
+  <div class="row">
+    <div class="col-md-12" style="margin:0; padding:0;"><h3 style="text-align:center; margin:20px 0px;">Адреса магазинов</h3>
+     <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SBMCoFRtTod7zUZ_Uiq5nC_qNqtHBwjN&width=100%&height=550">        </script>
+    </div>
+  </div>
+</div>  

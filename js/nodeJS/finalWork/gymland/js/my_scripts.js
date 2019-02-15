@@ -1,0 +1,107 @@
+$(function () {
+	//script for popups
+	$('a.show_popup').click(function () {
+		$('div.'+$(this).attr("rel")).fadeIn(500);
+		//$("body").append("<div id='overlay'></div>");
+        $("body").append("<div id='overlay' class='overlay'></div>");
+        //$("body").append("<a class='close' href='#'><div id='overlay'></div></a>");
+		$('#overlay').show().css({'filter' : 'alpha(opacity=80)'});
+		return false;				
+	});	
+  
+   $('a.close').click(function () {
+		$(this).parent().fadeOut(100);
+		$('#overlay').remove('#overlay');
+		return false;
+	});
+  
+  /*
+	$('#overlay').click(function () {
+		$(this).parent().fadeOut(100);
+		$('#overlay').remove('#overlay');
+		return false;
+	});
+    
+  */
+
+   /*
+   
+$(document).ready(function(){  
+   $("#overlay").click(function(){
+                $("#overlay").fadeIn();
+                return false;
+            });
+ 
+)};
+
+  */
+
+  
+  $('a.close#overlay').click(function() {
+  
+// ДОбавляем ids всех модальных окон здесь
+  
+$(this).$('#overlay').fadeOut();
+$('#overlay').remove('#overlay');
+    $('#overlay').removeClass('.overlay');
+return false;
+});
+
+
+/*
+  
+   $('#overlay').click(function () { 
+   $(this).hide(); 
+   $('.overlay').hide(); 
+   });
+
+*/
+  
+  /*
+  
+    $('.overlay').click(function () {
+		$(this).parent().fadeOut(100);
+		$('#overlay').remove('#overlay');
+		return false;
+	});
+
+  */
+    
+	//script for tabs
+	$("div.selectTabs").each(function () {
+		var tmp = $(this);
+		$(tmp).find(".lineTabs li").each(function (i) {
+			$(tmp).find(".lineTabs li:eq("+i+") a").click(function(){
+				var tab_id=i+1;
+				$(tmp).find(".lineTabs li").removeClass("active");
+				$(this).parent().addClass("active");
+				$(tmp).find(".tab_content div").stop(false,false).hide();
+				$(tmp).find(".tab"+tab_id).stop(false,false).fadeIn(300);
+				return false;
+			});
+		});
+	});
+});	
+
+
+
+$(document).ready(function(){  
+   $("#overlay").click(function(){
+                $("#overlay").fadeIn();
+                return false;
+            });
+ 
+});
+
+ 
+$(document).ready(function() {                  
+$('#overlay').click(function() {
+  
+// ДОбавляем ids всех модальных окон здесь
+  
+$(this).$('#overlay').fadeOut();
+$('#overlay').remove('#overlay');
+return false;
+});
+});                  
+                  

@@ -1,0 +1,211 @@
+/* = Общие стили
+************************/
+/* =Стили для header'а
+************************/
+
+
+/* Main	*/
+#main {
+	width: 94%;
+	margin-top:-15px;;
+}
+#main h1 { 
+	text-align: center;
+	font: 2.2em Helvetica, Arial; 
+	margin: 20px 0 10px 0;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #444444; 
+}
+.clear {
+	margin-top: -1px;
+	height: 1px;
+	clear:both;
+	zoom: 1;
+}
+
+/* Стили для формы */
+.form_box {
+	width: 300px;
+	/* margin: 40px auto; */
+    margin: 40px 0px 0px 0px;
+}
+
+.form_style p {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+/*.form_style p.forgot-password {position: relative; margin-bottom: 25px; width:120px !important; margin-left:160px !important;  margin-right:160px !important;} */
+
+.form_style .rcheck {
+  margin-bottom: 10px;
+}
+.form_style p label {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+	/*display: block;*/
+  cursor: pointer;
+  font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
+}
+.form_style .rline .right_label_form {
+	font-family:"Helvetica",Helvetica,Arial,sans-serif !important;
+	color:#222 !important;
+	font-weight:normal !important;
+	}
+
+
+.form_style .rcheck label {
+	font-size: 13px;
+	font-weight: normal;
+	color: #444444;
+	display: inline;
+  vertical-align: top;
+}
+.form_style input[type="text"] {
+	display: block;
+	border: 1px solid #CCC;
+	font-size: 16px;
+	color: #444444;
+	padding: 7px 7px 8px;
+	width: 250px;
+	font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
+	border-radius:3px;
+}
+.form_style input[type="checkbox"] {
+	display: inline-block;
+  border: 1px solid #cfcfcf;
+  width: 14px;
+  margin: 4px 4px 0 0;
+  vertical-align: top;
+}
+
+.form_style input[type="password"] {
+	display: block;
+	border: 1px solid #CCC;
+	font-size: 16px;
+	color: #444444;
+	padding: 7px 7px 8px;
+	width: 250px;
+	font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
+	border-radius:3px;
+}
+
+.form_style input:focus {
+	outline: none;
+	border-color: #07a6e6;
+}
+.form_style .btnsubmit {
+	border: none;
+	width: 170px;
+	text-align: center;
+	background: #07a6e6;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff;
+	cursor: pointer;
+	height: 55px;
+	line-height: 28px;
+	padding: 0;
+	opacity:.9;
+    right:0px;
+}
+
+.form_style .btnsubmit:hover {background-color: #007095 !important;}
+
+/* Для кнопки входа в личный кабинет отдельные свойства!!!!! */
+
+.login-submit .btnsubmit {	
+background: none !important;	
+	}	
+.login-submit .btnsubmit:hover {	
+background: #0D7796 !important;	
+	}
+
+
+
+.form_style input.rf_error {
+  border-color: #d8512d;
+}
+
+.form_style .rfield_error {
+  display: block;
+  padding: 0px 10px;
+  background-color: #d8512d;
+  color: #fff;
+  font-size: 14px;
+  z-index: 1;
+  position: absolute;
+  top: 20px;
+  left: auto;
+  right: 50px;
+  visibility: hidden;
+}
+
+.callback .rfield_error {
+  display: block;
+  padding: 0px 10px;
+  background-color: #d8512d;
+  color: #fff;
+  font-size: 14px;
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: auto;
+  right: 50px;
+  visibility: hidden;
+}
+
+
+.login .rfield_error {
+  display: block;
+  padding: 0px 10px;
+  background-color: #d8512d;
+  color: #fff;
+  font-size: 14px;
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: auto;
+  right: 95px;
+  visibility: hidden;
+}
+
+.right_form .rfield_error {
+  display: block;
+  padding: 0px 10px;
+  background-color: #d8512d;
+  color: #fff;
+  font-size: 14px;
+  z-index: 1;
+  position: absolute;
+  top: 20px;
+  left: auto;
+  right: 36px;
+  visibility: hidden;
+}
+
+
+.reg .rfield_error {
+  display: block;
+  padding: 0px 10px;
+  background-color: #d8512d;
+  color: #fff;
+  font-size: 14px;
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: auto;
+  right: 160px;
+  visibility: hidden;
+}
+
+
+
+
+.form_style .rcheck .rfield_error {
+  top: 0px;
+  left: 22px;
+  right: auto;
+}
+

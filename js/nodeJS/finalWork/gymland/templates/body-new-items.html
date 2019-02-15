@@ -1,0 +1,302 @@
+<div class="container-fluid" style="border:0px solid #222;">
+  <div class="row">
+    <div class="col-md-12" style="margin:0; padding:0;">
+      <div class="owl-carousel owl-carousel-head owl-theme">
+       <div class="item"> <img src="../img/slaider/1_slaider.jpg" width="100%" height="" alt="" /> </div>
+       <div class="item"> <img src="../img/slaider/2_slaider.jpg" width="100%" height="" alt="" /> </div>
+       <div class="item"> <img src="../img/slaider/3_slaider.jpg" width="100%" height="" alt="" /> </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div class="container-fluid" style="">
+  <div class="row">
+    <div class="col-md-9">
+      <nav> 
+       	<ul class="breadcrumb" style="background-color: #fff !important;">
+      		<li class="breadcrumb-item"><a href="../index.php" rel="home"> Главная </a></li>
+      		<li class="breadcrumb-item active" aria-current="page"> Новинки </li>
+        </ul>
+       </nav>
+       <div class="row">
+         
+             <!--<nav> 
+       		 	<ul class="breadcrumb">
+      				<li class="breadcrumb-item"><a href="../index.php" rel="home"> Главная </a></li>
+      				<li class="breadcrumb-item active" aria-current="page"> Просмотренные товары </li>
+      		 	</ul>
+             </nav>-->
+         
+         <div class="col-md-12 d-none d-md-block">
+           <h3 style="text-align:center; margin:20px 0px;">Новинки</h3>
+           <div class="row">
+            
+        <?
+             
+          //$item_array=array_unique($usr);
+          //$item_array=array_values($item_array);
+          //$item_array=array_reverse($item_array);
+           
+             
+            $res = $db->query("SELECT * FROM tovary WHERE tovar_new='1' AND product_availability='1' LIMIT 12");
+
+        while($new_tovar = mysqli_fetch_assoc($res)){
+          
+          if ($new_tovar['cena_sale']==0) 
+				{        
+					$bonus=$new_tovar['cena']*2/100;
+					$bonus=ceil($bonus);  
+				} else if ($new_tovar['cena_sale']!==0) 
+				{
+					$bonus=$new_tovar['cena_sale']*2/100;
+					$bonus=ceil($bonus); 
+				} 
+          	//$bonus=$viewed_items['cena_sale']*2/100;
+			//$bonus=ceil($bonus);  
+  
+			if ($new_tovar['mass']=='0') $new_tovar['mass']='';  
+			$preference = explode(",", $new_tovar[preference]);
+            foreach($preference as $new_tovar[preference]) {}
+          
+          echo "<div class='col-12 col-sm-4 col-md-4 col-xl-3'>
+          
+            <div class='container-fluid'> 
+             <div class='tovar-week' style='margin-bottom:25px;'>
+              <form action='' method='post' class='tovary_week_form'>
+                <div class='item'>
+                 <div class='item-cont'>
+                   <span class='vendor'> $new_tovar[manuf] </span>
+                   <div class='picture'>
+                   	 <a href='../catalog.php?product_eng=$new_tovar[product_eng]&category_eng=$new_tovar[category_eng]&manuf_eng=$new_tovar[manuf]&nazv=$new_tovar[nazv]&mass=$new_tovar[mass]&id=$new_tovar[id]'>
+                     	<img src='../photos/$new_tovar[photo]' style='height: 100px; margin-left:5px;' />
+                     </a>
+                   </div>
+                   <div class='title_tovar'>
+                    <p>
+                     <a href='../catalog.php?product_eng=$new_tovar[product_eng]&category_eng=$new_tovar[category_eng]&manuf_eng=$new_tovar[manuf]&nazv=$new_tovar[nazv]&mass=$new_tovar[mass]&id=$new_tovar[id]'>$new_tovar[nazv] </a>
+                    </p> 
+                   </div>
+                   <div class='price'>
+                   <br/>";
+                    if ($new_tovar[cena_sale]!=0) {
+           
+                        echo "<br/><span class='price_tovar'> $new_tovar[cena_sale] руб. </span>
+                        <br/><span class='old_price_tovar' > $new_tovar[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";
+
+                      } else { 
+
+                        echo "<br/><span class='price_tovar_standart' > $new_tovar[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";  
+
+                      }    
+                   echo "</div>
+                   <div>
+                    <span class='summary'> $new_tovar[category], $new_tovar[mass] $new_tovar[unit]. </span>
+                   </div>  
+                 </div>
+                 <div class='buy_tovar'>";
+                  echo "<select name='preference[$new_tovar[id]]'>";
+	  
+						foreach($preference as $new_tovar[preference])
+    						{
+        						echo "<option value='$new_tovar[preference]'>$new_tovar[preference]</option>";
+    						}
+				  echo "</select>";
+                 echo "</div>  
+                 <div class='buy_tovar'>  
+                   <div class='amount'>
+                    <span class='minus'>
+                     <div class='amount_minus amount_minus_right'>
+                       <a href='#' class='icon icon-minuss'>–</a>
+                     </div>
+                    </span>
+                 <div class='amount_text'>
+                  <input type='text' value='1' name='kol[$new_tovar[id]]' size='5'>
+                 </div>
+                  <span class='plus'>
+                    <div class='amount_plus amount_plus_right'>
+                     <a href='#' class='icon icon-pluss'>+</a>
+                    </div>
+                  </span>
+                 </div>
+                 <div class='buy' id='btn-click'>
+	               <a href='?submit_buy=$new_tovar[id]'>
+                    <button name='submit_buy' value='$new_tovar[id]' class='btn btn-7 btn-3 btn-icon-only icon-cart'></button>
+                   </a>      
+                 </div>
+                </div>
+              </form>
+             </div>        
+            </div>
+          </div>
+          
+          </div>";
+         }
+            
+             
+        ?>
+             </div>
+       </div> 
+         
+       <div class="col-12 d-block d-sm-none">
+       <h3 style="text-align:center; margin:20px 0px;">Новинки</h3>
+        <div class="owl-carousel slider-1">
+          
+        <?php  
+          $res = $db->query("SELECT * FROM tovary WHERE tovar_new='1' AND product_availability='1' LIMIT 12");
+          while($new_tovar = mysqli_fetch_assoc($res)){
+             if ($new_tovar['cena_sale']==0) 
+				{        
+					$bonus=$new_tovar['cena']*2/100;
+					$bonus=ceil($bonus);  
+				} else if ($new_tovar['cena_sale']!==0) 
+				{
+					$bonus=$new_tovar['cena_sale']*2/100;
+					$bonus=ceil($bonus); 
+				}  
+  
+			if ($new_tovar['mass']=='0') $new_tovar['mass']='';  
+			$preference = explode(",", $new_tovar[preference]);
+            foreach($preference as $new_tovar[preference]) {}
+            
+          echo "<div class='item' style='border:0px solid #222;'>
+            
+            <div class='container-fluid'> 
+             <div class='tovar-week'>
+              <form action='' method='post' class='tovary_week_form'>
+                <div class='item'>
+                 <div class='item-cont'>
+                   <span class='vendor'> $new_tovar[nazv] </span>
+                   <div class='picture'>
+                   <a href='../catalog.php?product_eng=$new_tovar[product_eng]&category_eng=$new_tovar[category_eng]&manuf_eng=$new_tovar[manuf]&nazv=$new_tovar[nazv]&mass=$new_tovar[mass]&id=$new_tovar[id]'>
+                     <img src='../photos/$new_tovar[photo]' style='height: 100px; margin-left:5px;' />
+                   </a>
+                   </div>
+                   <div class='title_tovar'>
+                    <p>
+                     <a href='../catalog.php?product_eng=$new_tovar[product_eng]&category_eng=$new_tovar[category_eng]&manuf_eng=$new_tovar[manuf]&nazv=$new_tovar[nazv]&mass=$new_tovar[mass]&id=$new_tovar[id]'>$new_tovar[nazv] </a>
+                    </p>
+                   </div>
+                   <div class='price'>
+                   <br/>";
+                    if ($new_tovar[cena_sale]!=0) {
+           
+                        echo "<br/><span class='price_tovar'> $new_tovar[cena_sale] руб. </span>
+                        <br/><span class='old_price_tovar' > $new_tovar[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";
+
+                      } else { 
+
+                        echo "<br/><span class='price_tovar_standart' > $new_tovar[cena] руб. </span>
+                        <br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";  
+
+                      }    
+                   echo "</div>
+                   <div>
+                    <span class='summary'> $new_tovar[category], $new_tovar[mass] $new_tovar[unit]. </span>
+                   </div>  
+                 </div>
+                 <div class='buy_tovar'>";
+                  echo "<select name='preference[$new_tovar[id]]'>";
+	  
+						foreach($preference as $new_tovar[preference])
+    						{
+        						echo "<option value='$new_tovar[preference]'>$new_tovar[preference]</option>";
+    						}
+				  echo "</select>";
+                 echo "</div>  
+                 <div class='buy_tovar'>  
+                   <div class='amount'>
+                    <span class='minus'>
+                     <div class='amount_minus amount_minus_right'>
+                       <a href='#' class='icon icon-minuss'>–</a>
+                     </div>
+                    </span>
+                 <div class='amount_text'>
+                  <input type='text' value='1' name='kol[$new_tovar[id]]' size='5'>
+                 </div>
+                  <span class='plus'>
+                    <div class='amount_plus amount_plus_right'>
+                     <a href='#' class='icon icon-pluss'>+</a>
+                    </div>
+                  </span>
+                 </div>
+                 <div class='buy' id='btn-click'>
+	               <a href='?submit_buy=$new_tovar[id]'>
+                    <button name='submit_buy' value='$new_tovar[id]' class='btn btn-7 btn-3 btn-icon-only icon-cart'></button>
+                   </a>      
+                 </div>
+                </div>
+              </form>
+             </div>        
+            </div>
+           </div>
+          </div>";
+                     
+            }
+          ?>
+         
+        </div>      
+      </div>  
+         
+         
+      </div>
+           
+    </div>
+    <?php require("templates/right-menu.php"); ?>
+  </div>
+</div>
+
+<div class="col-md-12"><h3 style="text-align:center; margin:20px 0px;">Наши преимущества</h3>
+    <div class="container">
+       <div class="row"> 
+       
+       <div class="col-md-3">
+        <div class="advantages">
+        <div class="img_advantages"><img src="../img/dolly_1.png" width="55" height="55"></div><div class="text_advantages"> Быстрая доставка </div> 
+        <div class="description_advantages"> Гибкие условия доставки по городу и области. Самовывоз из пунктов выдачи по всему городу. Резерв до 5 дней. 
+        <br><br><a href="send.php" class=""> Читать далее </a>
+        </div>
+       </div>
+       </div>  
+  
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/creditcard_1.png" width="55" height="55"></div><div class="text_advantages"> Способы оплаты </div> 
+       <div class="description_advantages"> Вы можете оплатить товар наличными, безналичным платёжом или электронными деньгами. 
+       <br><br><a href="oplata.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/cart_1.png" width="55" height="55"></div><div class="text_advantages"> Ассортимент </div> 
+       <div class="description_advantages"> В нашем магазине Вы можете приобрести товары как отечественных, так и зарубежных производителей. 
+       <br><br><a href="katalog.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/money_1.png" width="55" height="55"></div><div class="text_advantages"> Цены на товары </div> 
+       <div class="description_advantages"> Вас порадуют цены на товары в нашем магазине. Каждую неделю мы делаем скидки на наиболее популярные товары. 
+       <br><br><a href="sale.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>
+        
+      </div>
+     </div>
+</div>
+
+<div class="container-fluid" style="border:0px solid #222;">
+  <div class="row">
+    <div class="col-md-12" style="margin:0; padding:0;"><h3 style="text-align:center; margin:20px 0px;">Адреса магазинов</h3>
+     <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SBMCoFRtTod7zUZ_Uiq5nC_qNqtHBwjN&width=100%&height=550">        </script>
+    </div>
+  </div>
+</div>  

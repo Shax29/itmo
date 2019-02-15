@@ -1,0 +1,468 @@
+/* html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+*/
+
+.login-submit, .login-submit:before, .login-submit:after {
+  background: #373737 url(../img/bg_form.png) 0 0 repeat;
+}
+
+
+
+.popup {
+padding:0px 0px 0px;
+position:fixed;
+/*top:30%;
+left:27%;*/
+display:none;
+overflow:hidden;
+background:url(../img/bg_form.png);
+border:3px solid #ccc;
+-moz-border-radius:15px;
+-webkit-border-radius:15px;
+border-radius:15px;
+z-index:999;
+margin:auto;
+vertical-align:top;
+}
+
+
+.popup h5 {
+font:bold 18px/32px Arial, san-serif;
+color:#CCC;
+}
+
+.popup a.close {
+width:16px;
+height:16px;
+display:block;
+text-indent:-9999px;
+position:absolute;
+top:15px;
+right:15px;
+background:url(../img/close.png) no-repeat !important;
+border-bottom:none;
+z-index:9999 !important;
+opacity:0.6;
+
+}
+
+.popup a.close:hover {
+	opacity:1.0;
+	
+	
+	}
+
+
+
+
+.popup_login {
+margin-left:0px;
+width:500px;
+/*left:32%;
+float: left;
+margin-left: -595px;
+margin-top: 220px;
+position:relative;*/
+right: 50%;
+top: 50%;
+margin-top: -150px;
+margin-right: -250px;  
+}
+
+
+.popup_reg {
+width: 700px;
+height: 370px;
+top: 50%;
+right: 50%;
+margin-top: -210px;
+margin-right: -350px;
+}
+
+
+
+.popup_callback {
+width: 630px;
+height: 240px;
+margin-right: -315px;
+margin-top: -120px;
+top: 50%;
+right: 50%;
+}
+
+
+
+#overlay {
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+display:none;
+background:#000;
+opacity:.8;
+z-index:1;
+
+}
+
+
+ .login a, .reg a, .callback a {
+  color: #fff;
+  text-decoration: none;
+  
+}
+.login a:hover, reg a:hover, .callback a:hover {
+  text-decoration: underline;
+}
+
+.login {
+  position: relative;
+  margin: 30px auto;
+  width: 450px;
+  height:155px;
+  padding-right: 0px;
+  font-weight: 300; 
+  border:0px solid;
+  margin-top:50px;
+}
+
+.reg {
+  position: relative;
+  margin: 30px auto;
+  width: 600px;
+  height:155px;
+  padding-left:40px;
+  font-weight: 300; 
+  border:0px solid;
+  float:left;
+}
+
+
+.callback {
+  position: relative;
+  margin: 30px auto;
+  /*width: 450px;*/
+  width: 100%;
+  height:155px;
+  padding-left:0px;
+  font-weight: 300; 
+  border:0px solid;
+  float:left;
+}
+
+
+.login p, .reg p , .callback p {
+  margin: 0 0 0px;
+  
+}
+
+.login input, .login button, .login label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.reg input, .reg button, .reg label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.callback input, .callback button, .callback label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.callback button { margin-left:-20px !important;}
+
+
+.login input[type=text], .login input[type=password], .reg input[type=text], .reg input[type=password], .callback input[type=text], .callback input[type=password]   {
+  padding: 0 10px;
+  
+  height: 40px;
+  color: #bbb !important;
+  text-shadow: 1px 1px 1px black;
+  background: rgba(0, 0, 0, 0.16);
+  
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);
+}
+
+
+
+.login input[type=text], .login input[type=password] {width: 285px !important;}
+
+
+.login input[type=text]:focus, .login input[type=password]:focus, .reg input[type=text]:focus, .reg input[type=password]:focus, .callback input[type=text]:focus, .callback input[type=password]:focus {
+  color: white;
+  background: rgba(0, 0, 0, 0.1);
+  outline: 0;
+}
+
+.login label {
+  float: left;
+  width: 70px;
+  padding-right: 10px;
+  font-weight: 100;
+  text-align: right;
+  color:#FFF;
+  margin-top:7px;
+	}
+
+.form_style p label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFF;
+    /*display: block;*/
+    cursor: pointer;
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
+}
+
+/*.form_style input[type="password"] {
+    display: block;
+    border: 1px solid #CCC;
+    font-size: 16px;
+    color: #444444;
+    padding: 7px 7px 8px;
+    width: 250px;
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
+    border-radius: 3px;
+}*/
+	
+ .reg label, .callback label {
+  float: left;
+  width: 150px;
+  padding-right: 10px;
+  font-weight: 100;
+  text-align: right;
+  color:#FFF;
+  margin-top:7px;
+}
+
+
+
+.last_menu .popup .login .forgot-password a {
+  padding-left: 0px;
+  font-size: 13px;
+  letter-spacing: 0px;
+  /* color: #00a1d2; */
+  text-decoration: none;
+  background:url(../img/bg_form.png);
+  /* margin-left:-130px;*/
+  
+}
+	
+	
+.last_menu .popup .login .forgot-password a:hover {
+	text-decoration:underline;
+	transition:none !important;
+	
+	
+}
+
+
+
+.login .login-submit {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  width: 48px;
+  height: 48px;
+  padding: 0px;
+  border-radius: 0px;
+  
+}
+
+
+.reg .reg-submit  {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  left:500px;
+  width: 48px;
+  height: 48px;
+  padding: 0px;
+  border-radius: 0px; 
+}
+
+
+
+.callback .callback-submit  {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  left:450px;
+  /*width: 48px;
+  height: 48px;*/
+  padding: 0px;
+  border-radius: 0px; 
+}
+
+
+.login .login-submit:before, .login-submit:after {
+  content: '';
+  z-index: 1;
+  position: absolute;
+}
+
+.reg .reg-submit:before, .reg-submit:after {
+  content: '';
+  z-index: 1;
+  position: absolute;
+}
+
+
+.callback .callback-submit:before, .callback-submit:after {
+  content: '';
+  z-index: 1;
+  position: absolute;
+}
+
+
+.login-submit:before, .reg-submit:before, .callback-submit:before {
+  top: 28px;
+  left: -4px;
+  width: 4px;
+  height: 10px;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
+}
+.login-submit:after, .reg-submit:after, .callback-submit:after {
+  top: -4px;
+  bottom: -4px;
+  right: -4px;
+  width: 36px;
+}
+
+.login-button {
+  position: relative !important;
+  z-index: 2;
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 0 48px !important;
+  /* Fix wrong positioning in Firefox 9 & older (bug 450418) */
+  text-indent: 120% !important;
+  white-space: nowrap !important;
+  overflow: hidden;
+  background: none;
+  border: 0;
+  border-radius: 24px !important;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.1) !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.1) !important;
+  /* Must use another pseudo element for the gradient background because Webkit */
+  /* clips the background incorrectly inside elements with a border-radius.     */
+}
+.login-button:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  background: #00a2d3;
+  border-radius: 24px !important;
+  background-image: -webkit-linear-gradient(top, #00a2d3, #0d7796);
+  background-image: -moz-linear-gradient(top, #00a2d3, #0d7796);
+  background-image: -o-linear-gradient(top, #00a2d3, #0d7796);
+  background-image: linear-gradient(to bottom, #00a2d3, #0d7796);
+  -webkit-box-shadow: inset 0 0 0 1px #00a2d3, 0 0 0 5px rgba(0, 0, 0, 0.16);
+  box-shadow: inset 0 0 0 1px #00a2d3, 0 0 0 5px rgba(0, 0, 0, 0.16);
+}
+.login-button:active:before {
+  background: #0591ba;
+  background-image: -webkit-linear-gradient(top, #0591ba, #00a2d3);
+  background-image: -moz-linear-gradient(top, #0591ba, #00a2d3);
+  background-image: -o-linear-gradient(top, #0591ba, #00a2d3);
+  background-image: linear-gradient(to bottom, #0591ba, #00a2d3);
+}
+.login-button:after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  width: 25px;
+  height: 19px;
+  background: url(../img/arrow_form.png) 0 0 no-repeat;
+}
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.lt-ie9 input[type=text], .lt-ie9 input[type=password] {
+  line-height: 40px;
+  background: #282828;
+}
+.lt-ie9 .login-submit, .lt-ie9 .reg-submit, .lt-ie9 .callback-submit  {
+  position: absolute;
+  top: 12px;
+  right: -28px;
+  padding: 4px;
+}
+.lt-ie9 .login-submit:before, .lt-ie9 .login-submit:after {
+  display: none;
+}
+
+.lt-ie9 .reg-submit:before, .lt-ie9 .reg-submit:after {
+  display: none;
+}
+
+.lt-ie9 .callback-submit:before, .lt-ie9 .callback-submit:after {
+  display: none;
+}
+
+
+.lt-ie9 .login-button {
+  line-height: 48px;
+}
+
+.lt-ie9 .reg-button {
+  line-height: 48px;
+}
+
+.lt-ie9 .callback-button {
+  line-height: 48px;
+}
+
+
+.lt-ie9 .about {
+  background: #313131;
+}
+
+
+@-webkit-keyframes slideOut{
+	0%{top:-30px; opacity: 0;}
+	100%{top:0px; opacity: 1;}
+}
+

@@ -1,0 +1,415 @@
+.popup {
+    padding: 0px 0px 0px;
+    position: fixed;
+    display: none;
+    overflow: hidden;
+    background: url(../img/bg_form.png);
+    border: 3px solid #ccc;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    z-index: 999;
+    /* margin: auto; */
+    vertical-align: top;
+}
+
+.popup_login {
+    margin-left: 0px;
+    width: 500px;
+    right: 50%;
+    top: 50%;
+    margin-top: -150px;
+    margin-right: -250px;
+}
+
+.popup a.close {
+    width: 16px;
+    height: 16px;
+    display: block;
+    text-indent: -9999px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: url(../img/close.png) no-repeat !important;
+    border-bottom: none;
+    z-index: 9999 !important;
+    opacity: 0.6;
+}
+
+.popup a.close:hover {opacity: 1.0;}
+
+.popup h5 {
+    font: bold 18px/32px Arial, san-serif;
+    color: #CCC;
+    margin-top: 0.2rem;
+    text-align:center;
+}
+
+.login {
+    position: relative;
+    margin: 30px auto;
+    width: 450px;
+    height: 155px;
+    padding-right: 0px;
+    font-weight: 300;
+    border: 0px solid;
+    margin-top: 50px;
+}
+
+.form_style p {
+    margin-bottom: 25px !important;
+    position: relative;
+    text-align: center;
+}
+
+.login p {
+    margin-bottom: 25px !important;
+    position: relative;
+}
+
+.form_style p label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFF;
+    display: block;
+    cursor: pointer;
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
+}
+
+.login label {
+    float: left;
+    width: 70px;
+    padding-right: 10px;
+    text-align: right;
+    margin-top: 7px;
+    font-weight: bold;
+}
+
+.form_style input[type="text"], .form_style input[type="password"] {
+    display: block;
+    border: 1px solid #CCC;
+    font-size: 16px;
+    /*color: #444444;*/
+    padding: 7px 7px 8px;
+    width: 250px;
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
+    border-radius: 3px;
+}
+
+.login input[type=text], .login input[type=password] {
+    width: 285px !important;
+}
+
+
+.login-submit .btnsubmit {
+    background: none !important;
+}
+
+.form_style .btnsubmit {
+    border: none;
+    /* width: 170px; */
+    text-align: center;
+    /* background: #07a6e6;
+ */    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    /* height: 55px; */
+    line-height: 28px;
+    /* padding: 0; */
+    opacity: .9;
+    right: 0px;
+}
+
+.login-button::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    background: #00a2d3;
+    border-radius: 24px !important;
+    background-image: -webkit-linear-gradient(top, #00a2d3, #0d7796);
+    background-image: -moz-linear-gradient(top, #00a2d3, #0d7796);
+    background-image: -o-linear-gradient(top, #00a2d3, #0d7796);
+    background-image: linear-gradient(to bottom, #00a2d3, #0d7796);
+    -webkit-box-shadow: inset 0 0 0 1px #00a2d3, 0 0 0 5px rgba(0, 0, 0, 0.16);
+    box-shadow: inset 0 0 0 1px #00a2d3, 0 0 0 5px rgba(0, 0, 0, 0.16);
+}
+
+.login-button::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    width: 25px;
+    height: 19px;
+    background: url(../img/arrow_form.png) 0 0 no-repeat;
+}
+
+.login a, .reg a, .callback a {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 14px !important;
+    font-weight:bold;
+}
+
+.login a:hover, .reg a:hover, .callback a:hover {
+    color: #00B4F0 !important;
+}
+
+.forgot-password a:hover {color: #00B4F0 !important;}
+
+
+.form_style input:focus {
+	outline: none;
+	border-color: #07a6e6;
+}
+.form_style .btnsubmit {
+	border: none;
+	width: 170px;
+	text-align: center;
+	background: #07a6e6;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff;
+	cursor: pointer;
+	height: 55px;
+	line-height: 28px;
+	padding: 0;
+	opacity:.9;
+    right:0px;
+}
+
+.form_style .btnsubmit:hover {background-color: #007095 !important;}
+
+/* Для кнопки входа в личный кабинет отдельные свойства!!!!! */
+
+.login-submit .btnsubmit {	
+background: none !important;	
+	}	
+.login-submit .btnsubmit:hover {	
+background: #0D7796 !important;	
+	}
+
+
+
+.login .login-submit {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  width: 48px;
+  height: 48px;
+  padding: 0px;
+  border-radius: 0px;
+  
+}
+
+
+.reg .reg-submit  {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  left:500px;
+  width: 48px;
+  height: 48px;
+  padding: 0px;
+  border-radius: 0px; 
+}
+
+
+
+.callback .callback-submit  {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  left:450px;
+  /*width: 48px;
+  height: 48px;*/
+  padding: 0px;
+  border-radius: 0px; 
+}
+
+
+.login .login-submit:before, .login-submit:after {
+  content: '';
+  z-index: 1;
+  position: absolute;
+}
+
+.reg .reg-submit:before, .reg-submit:after {
+  content: '';
+  z-index: 1;
+  position: absolute;
+}
+
+
+.callback .callback-submit:before, .callback-submit:after {
+  content: '';
+  z-index: 1;
+  position: absolute;
+}
+
+
+.login-submit:before, .reg-submit:before, .callback-submit:before {
+  top: 28px;
+  left: -4px;
+  width: 4px;
+  height: 10px;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
+}
+.login-submit:after, .reg-submit:after, .callback-submit:after {
+  top: -4px;
+  bottom: -4px;
+  right: -4px;
+  width: 36px;
+}
+
+.login-button {
+  position: relative !important;
+  z-index: 2;
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 0 48px !important;
+  /* Fix wrong positioning in Firefox 9 & older (bug 450418) */
+  text-indent: 120% !important;
+  white-space: nowrap !important;
+  overflow: hidden;
+  background: none;
+  border: 0;
+  border-radius: 24px !important;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.1) !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.1) !important;
+  /* Must use another pseudo element for the gradient background because Webkit */
+  /* clips the background incorrectly inside elements with a border-radius.     */
+}
+.login-button:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  background: #00a2d3;
+  border-radius: 24px !important;
+  background-image: -webkit-linear-gradient(top, #00a2d3, #0d7796);
+  background-image: -moz-linear-gradient(top, #00a2d3, #0d7796);
+  background-image: -o-linear-gradient(top, #00a2d3, #0d7796);
+  background-image: linear-gradient(to bottom, #00a2d3, #0d7796);
+  -webkit-box-shadow: inset 0 0 0 1px #00a2d3, 0 0 0 5px rgba(0, 0, 0, 0.16);
+  box-shadow: inset 0 0 0 1px #00a2d3, 0 0 0 5px rgba(0, 0, 0, 0.16);
+}
+.login-button:active:before {
+  background: #0591ba;
+  background-image: -webkit-linear-gradient(top, #0591ba, #00a2d3);
+  background-image: -moz-linear-gradient(top, #0591ba, #00a2d3);
+  background-image: -o-linear-gradient(top, #0591ba, #00a2d3);
+  background-image: linear-gradient(to bottom, #0591ba, #00a2d3);
+}
+.login-button:after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  width: 25px;
+  height: 19px;
+  background: url(../img/arrow_form.png) 0 0 no-repeat;
+}
+
+
+/* Мобильное форма авторизации и регистрации */
+.popup_mobile {
+    width: auto;
+    right: 50%;
+    top: 50%;
+    /* margin-top: 150px; */
+    margin-right: -250px;
+    float: left;
+}
+
+#tabs-p {
+    margin: 50px 0px;
+    width: 100%;
+    text-align: center;
+    padding: 0px 20px;
+}
+
+#tabs-p li {
+	float: left;
+    /* margin: 20px; */
+   /* padding: 10px 0px; */
+    border: 1px solid #888;
+    width: 50% !important;
+    border-radius: 3px;
+
+}
+
+#tabs-p #current-p a, #tabs-p #current-p a::after {
+    background-color:#2A2A2A;
+    color:#00B4F0;
+    z-index: 0; 
+}
+
+#tabs-p a {
+    position: relative;
+    background: #3E3E3F;
+    padding: .7em 3.5em;
+    float: left;
+    text-decoration: none;
+    color: #FFF;
+    width: 100%;
+    text-align: center;
+   /* -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+    border-radius: 5px 0 0 0;
+    -moz-box-shadow: 0 2px 2px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.4);
+    box-shadow: 0 2px 2px rgba(0,0,0,.4); */
+}
+
+/*#tabs-p li:hover {background-color:#2A2A2A;}*/
+/*#tabs-p li a:hover {background-color:#2A2A2A; transition: all 0.1s ease-out 0.1s;}*/
+/*#tabs-p li a:hover {transition: all 0.1s ease-out 0.1s; color:#00B4F0 !important;background-color:#2A2A2A;}*/
+/*#tabs-p li:hover a {color:#00B4F0;}*/
+
+#content-p {
+	float: left;
+    width: 100%;
+}
+
+#tab-p1 {
+	width: 500px;
+    height: 100%;
+    float: left;
+}
+
+#tab-p1 form {
+	position: relative;
+    margin: 30px auto;
+    /* width: 450px; */
+    height: auto;
+    /* padding-right: 0px; */
+    font-weight: 300;
+    /* border: 0px solid; */
+    /* margin-top: 50px; */
+}
+
+#tab-p2 {
+	width: 700px;
+    height: 100%;
+    float: left;
+} 
+
+#tab-p2 form {
+    position: relative;
+    margin: 30px auto;
+    width: 100%;
+    height: auto;
+    padding-left: 40px;
+    font-weight: 300;
+    border: 0px solid;
+    float: left;
+}

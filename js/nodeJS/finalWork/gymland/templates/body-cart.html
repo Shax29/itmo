@@ -1,0 +1,930 @@
+<div class="container-fluid" style="">
+  <div class="row">
+    <div class="col-md-9">
+       <div class="row">
+         <div class="col-12">
+           <div class="">
+            
+             <nav> 
+       		 	<ul class="breadcrumb" style="background-color: #fff !important;">
+      				<li class="breadcrumb-item"><a href="../index.php" rel="home"> Главная </a></li>
+      				<li class="breadcrumb-item active" aria-current="page"> Корзина </li>
+      		 	</ul>
+             </nav>
+      
+             <h3 style="text-align:center; margin:20px 0px;">Корзина</h3>
+  
+      		<div class="container">
+   				<div class="row">        
+       				<div class="col-md-12">
+                      
+                         <div class='cart_with_tovary'>
+                            <div class='my_cart' id='my_cart'>
+                                
+                            </div>
+                         </div>
+                      
+						 <script>
+                            /* Удалить товар из корзины */
+                            /* addEvent(d.getElementById('delete_item_cart[cartData[itemId]]'), 'click', function(e){
+                                 localStorage.removeItem('cart');
+                             }); */
+                                            
+                            /* Открыть корзину */
+                              //addEvent(d.getElementById('checkout'), 'click', openCart);
+                      
+                            /* Очистить корзину */
+                               /*addEvent(d.getElementById('clear_cart'), 'click', function(e){
+                                   localStorage.removeItem('cart');
+                                   //localStorage.clear();
+                                   cartCont.innerHTML = '<p style="font-size:18px;"><br> В настоящей момент Ваша корзина пуста. <a href="../katalog.php"> Перейти в каталог.</a></p>';
+                               }); */
+                         </script>  
+                      
+                         <form method="get" id="cart" action="cart.php">
+                           
+                          <!-- <div class='cart_without_tovary'>
+                              <p style="font-size:18px;"> 
+                                <br /> В настоящей момент Ваша корзина пуста. <a href="katalog.php"> Перейти в каталог.</a>
+                           </div> -->  
+                           
+                         <!--  <script>
+               var totalCartItems = ''
+               var cartTable = getCartData();
+               if(cartTable !== null){
+               totalCartItems = '<table class="my_cart_tovary"><tr class="title_cart"><td class="tovar"> Товар </td><td class="name_tovarov"> Название </td><td class="amount_tovarov"> Количество </td><td class="taste_tovarov"> Вкус, объём или размер </td><td class="price_tovarov"> Цена </td><td class="action"> Действие </td></tr>';
+                        for(var items in cartTable){
+                          totalCartItems += '<tr>';
+                          totalCartItems += '<td class="photo_tovarov"><img src="../photos/'+ cartTable[items][3] +'" width="60" height="80"/></td>';
+                          totalCartItems += '<td class="name_tovarov_content"><a href="../products/'+ cartTable[items][0] +'">'+ cartTable[items][0] +' гр. </a></td>';
+                          totalCartItems += '<td class="amount_tovarov_content"><div class="amount_cart"><span class="minus"><div class="amount_minus amount_minus_right"><a href="#" class="icon icon-minuss">–</a></div></span><div class="amount_text"><input type="text" value="' + cartTable[items][2] + '" name="kol[149]" size="5"></div><span class="plus"><div class="amount_plus amount_plus_right"><a href="#" class="icon icon-pluss">+</a></div></span></div></td>';
+                          totalCartItems += '<td class="taste_tovarov_content">' + cartTable[items][5] + '</td>';
+                          if (cartTable[items][4] !== 0) {
+                          totalCartItems += '<td class="price_tovarov_content"> <span class="cena_sale"> ' + cartTable[items][1] + ' руб.</span> <br> <span class="cena_old"> ' + cartTable[items][4] + ' руб.</span> </td>';
+                          } else {
+                          totalCartItems += '<td class="price_tovarov_content"> <span class="price_tovar_standart"> ' + cartTable[items][1] + ' руб.</span></td>';
+                          }
+                          totalCartItems += '<td class="delete"><!--<a href="?del_cart='+ cartTable[0] +'" title="Удалить товар из корзины"> Удалить </a>--><!--<button id="delete_item_cart[' + cartTable[items][6] + ']">Удалить товар</button></td>';
+                          
+                          for(var i = 0; i < cartTable[items].length; i++){
+                            //totalCartItems += '<td>' + cartTable[items][i] + '</td>';
+                          }
+                          totalCartItems += '</tr>';
+                        }
+                        totalCartItems += '<tr class="footer_cart"><td></td><td></td><td></td><td class="itogo"> Итого: </td><td class="itogo_cena">'+ amountPrice +' руб. </td><td class="clear_cart"><!--<a href="?clear_cart=ok" title="Очистить корзину" id="clear_cart"> Очистить корзину </a>--><!--<button id="clear_cart">Очистить корзину</button></td></tr>';
+                        totalCartItems += '</table>';
+                        my_cart.innerHTML = totalCartItems;
+                      }  
+                      
+             </script>-->
+                           
+                           <div class='cart_with_tovary'>
+                              <div class='my_cart'>
+                                <form action='cart.php' method='get'>
+                                  <!--<table class='my_cart_tovary'>
+                                    <tr>
+                                    <td class='tovar'> Товар </td>
+                                    <td class='name_tovarov'> Название </td>
+                                    <td class='amount_tovarov'> Количество </td>
+                                    <td class='taste_tovarov'> Вкус,объём или размер </td>
+                                    <td class='price_tovarov'> Цена </td>
+                                    <td class='action'> Действие </td>
+                                    </tr>                                    
+                                  </table>-->
+                                  
+                                 <!-- <table class="my_cart_tovary">
+                                      <tbody>
+                                      <tr class="title_cart">
+                                        <td class="tovar"> Товар </td>
+                                        <td class="name_tovarov"> Название </td>
+                                        <td class="amount_tovarov"> Количество </td>
+                                        <td class="taste_tovarov"> Вкус,объём или размер </td>
+                                        <td class="price_tovarov"> Цена </td>
+                                        <td class="action"> Действие </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="photo_tovarov"><img src="../photos/91.jpeg" width="60" height="80" /></td>
+                                        <td class="name_tovarov_content"><a href="../products/BSN-True Mass 1200-4710.php">True Mass 1200, 4710 гр.</a></td>
+                                        <td class="amount_tovarov_content">
+                                          <div class="amount_cart">
+                                            <span class="minus">
+                                            <div class="amount_minus amount_minus_right">
+                                              <a href="#" class="icon icon-minuss">–</a>
+                                            </div>
+                                            </span>
+                                            <div class="amount_text">
+                                              <input type="text" value="1" name="kol[149]" size="5">
+                                            </div>
+                                            <span class="plus">
+                                              <div class="amount_plus amount_plus_right">
+                                                <a href="#" class="icon icon-pluss">+</a>
+                                              </div>
+                                            </span>
+              							  </div>
+                                        </td>
+                                        <td class="taste_tovarov_content">
+                                          <select name="preference0" onchange="document.getElementById('cart').submit()" id="preference0">
+                                            <option value="Шоколад" selected="selected">Шоколад</option>
+                                          </select>
+                                        </td>
+                                        <td class="price_tovarov_content"> <span class="cena_sale"> 3490 руб.</span> <br> <span class="cena_old"> 3900 руб.</span> </td>
+                                        <td class="delete"><a href="?del_cart=0" title="Удалить товар из корзины"> Удалить </a></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="photo_tovarov"><img src="../photos/159.jpeg" width="60" height="80" /></td>
+                                        <td class="name_tovarov_content"><a href="../products/VP Lab-PRO 5-1200.php">PRO 5, 1200 гр.</a></td>
+                                        <td class="amount_tovarov_content">
+                                          <div class="amount_cart">
+                                            <span class="minus">
+                                            <div class="amount_minus amount_minus_right">
+                                              <a href="#" class="icon icon-minuss">–</a>
+                                            </div>
+                                            </span>
+                                            <div class="amount_text">
+                                              <input type="text" value="1" name="kol[149]" size="5">
+                                            </div>
+                                            <span class="plus">
+                                              <div class="amount_plus amount_plus_right">
+                                                <a href="#" class="icon icon-pluss">+</a>
+                                              </div>
+                                            </span>
+              							  </div>
+                                        </td>
+                                        <td class="taste_tovarov_content">
+                                          <select name="preference1" onchange="document.getElementById('cart').submit()" id="preference1">
+                                            <option value="Шоколад" selected="selected">Шоколад</option>
+                                          </select>
+                                        </td>
+                                        <td class="price_tovarov_content"> <span class="cena_sale"> 2867 руб.</span> <br> <span class="cena_old"> 3200 руб.</span> </td>
+                                        <td class="delete"><a href="?del_cart=1" title="Удалить товар из корзины"> Удалить </a></td></tr>        
+                                      <tr class="footer_cart">
+                                        <td class="itogo"> Итого: </td>
+                                        <td class="itogo_cena">9224 руб. </td> 
+                                        <td class="clear_cart"><input type="submit" class="my-btn" name="pereschet" value="Пересчитать"></td>
+                                        <td class="clear_cart"><a href="?clear_cart=ok" title="Очистить корзину"> Очистить корзину </a></td>
+                                      </tr>  
+                                    </tbody>
+                                  </table> -->
+                                </form>
+                                
+                                <form method="post" class="delivery_method" id="delivery" action="">
+     
+                                  <div class="delivery_cart">
+                                  <script>
+                                    var show;
+                                    function hidetxt(type){
+                                        param=document.getElementById(type);
+                                        if(param.style.display == "none"){
+                                            if(show) show.style.display = "none";
+                                            param.style.display = "block";
+                                            show = param;
+                                        }else param.style.display = "none";
+                                    }
+                                  </script>
+
+                                    <h6 style="font-weight:bold;margin-top:0px; margin-left:30px;"> Способы доставки: </h6>
+                                     <input type="radio" name="delivery" value="courier" style="cursor:pointer;" onclick="Go()" id="1" />&nbsp;&nbsp;Курьерская доставка по Санкт-Петербургу
+									<div style="display:none;" class="courier" id="courier"> 
+
+                                      <span class="payment_delivery_courier">Стоимость доставки: 250 руб., без предоплаты. <br>При заказе товара от 5 000 руб., доставка товара осуществляется бесплатно. </span>
+                                      <br><span class="payment_delivery_courier_title">Заказы доставляются курьерской службой. Перед доставкой с вами свяжется сотрудник службы логистики.</span>
+                                      <br><select name="delivery_city_district_courier">
+                                            <option value="Выберите район города"> Выберите район города </option>
+                                            <option value="Адмиралтейский р-он"> Адмиралтейский </option>
+                                            <option value="Василеостровский р-он"> Василеостровский </option>
+                                            <option value="Выборгский р-он"> Выборгский </option>
+                                            <option value="Калининский р-он"> Калининский </option>
+                                            <option value="Кировский р-он"> Кировский </option>
+                                            <option value="Красногвардейский р-он"> Красногвардейский </option>
+                                            <option value="Красносельский р-он"> Красносельский </option>
+                                            <option value="Московский р-он"> Московский </option>
+                                            <option value="Невский р-он"> Невский </option>
+                                            <option value="Петроградский р-он"> Петроградский </option>
+                                            <option value="Приморский р-он"> Приморский </option>
+                                            <option value="Фрунзенский р-он"> Фрунзенский </option>
+                                            <option value="Центральный р-он"> Центральный </option>
+                                      </select>
+                                    </div>
+
+  									  <br><input type="radio" name="delivery" value="immediately_courier" style="cursor:pointer;" onclick="Go()">&nbsp;&nbsp;Срочная курьерская доставка по Санкт-Петербургу
+                                    <div style="display:none;" class="immediately_courier" id="immediately_courier">
+                                    	<span class="payment_delivery_courier">Стоимость доставки: 400 руб., без предоплаты.  </span>
+                                      <br><span class="payment_delivery_courier_title">Заказы доставляются курьерской службой. Перед доставкой с вами свяжется сотрудник службы логистики.</span>
+                                      <br><select name="delivery_city_district_immediately_courier">
+                                            <option value="Выберите район города"> Выберите район города </option>
+                                            <option value="Адмиралтейский р-он"> Адмиралтейский </option>
+                                            <option value="Василеостровский р-он"> Василеостровский </option>
+                                            <option value="Выборгский р-он"> Выборгский </option>
+                                            <option value="Калининский р-он"> Калининский </option>
+                                            <option value="Кировский р-он"> Кировский </option>
+                                            <option value="Красногвардейский р-он"> Красногвардейский </option>
+                                            <option value="Красносельский р-он"> Красносельский </option>
+                                            <option value="Московский р-он"> Московский </option>
+                                            <option value="Невский р-он"> Невский </option>
+                                            <option value="Петроградский р-он"> Петроградский </option>
+                                            <option value="Приморский р-он"> Приморский </option>
+                                            <option value="Фрунзенский р-он"> Фрунзенский </option>
+                                            <option value="Центральный р-он"> Центральный </option>
+                                       </select>
+                                    </div>
+
+									<br><input type="radio" name="delivery" value="area" style="cursor:pointer;" onclick="Go()">&nbsp;&nbsp;Доставка по Ленинградской области и пригородам Санкт-Петербурга
+									<div style="display:none;" class="area" id="area"> 
+                                      <span class="payment_delivery_courier">Cтоимость доставки в зависимости от населенного пункта.</span>
+                                      <br><span class="payment_delivery_courier_title">Заказы доставляются курьерской службой. Сотрудник службы логистики согласует с вами удобное время и дату доставки. <br><br>Пожелания по времени и дате доставки Вы можете оставить в комментариях к заказу ниже на форме <b>"Персональные данные"</b></span>
+                                      <br><select name="delivery_city_suburb">
+                                          <option value="Выберите населённый пункт"> Выберите населённый пункт </option>
+                                          <option value="Всеволожск"> Всеволожск </option>
+                                          <option value="Вырица"> Вырица </option>
+                                          <option value="Гатчина"> Гатчина </option>
+                                          <option value="Горелово"> Горелово </option>
+                                          <option value="Зеленогорск"> Зеленогорск </option>
+                                          <option value="Кировск"> Кировск </option>
+                                          <option value="Колпино"> Колпино </option>
+                                          <option value="Коммунар"> Коммунар </option>
+                                          <option value="Красное село"> Красное село </option>
+                                          <option value="Кронштадт"> Кронштадт </option>
+                                          <option value="Ломоносов"> Ломоносов </option>
+                                          <option value="Малые колпаны"> Малые колпаны </option>
+                                          <option value="Никольское"> Никольское </option>
+                                          <option value="Отрадное"> Отрадное </option>
+                                          <option value="Новое девяткино"> Новое девяткино </option>
+                                          <option value="Павловск"> Павловск </option>
+                                          <option value="Петергоф"> Петергоф </option>
+                                          <option value="Пушкин"> Пушкин </option>
+                                          <option value="Рощино"> Рощино </option>
+                                          <option value="Сертолово"> Сертолово </option>
+                                          <option value="Сестрорецк"> Сестрорецк </option>
+                                          <option value="Стрельна"> Стрельна </option>
+                                          <option value="Сосновый бор"> Сосновый бор </option>
+                                          <option value="Тосно"> Тосно </option>
+                                          <option value="Шушары"> Шушары </option>
+                                      </select>
+									</div>
+
+                                    <br><input type="radio" name="delivery" value="pickup" style="cursor:pointer;" onclick="Go()">&nbsp;&nbsp;Самовывоз товара из пунктов выдачи  
+                                    <div style="display:none;" class="pickup" id="pickup"> 
+                                      <span class="payment_delivery_courier">Стоимость доставки: бесплатно., без предоплаты.
+                                      <br><span class="payment_delivery_courier_title">Вы можете забрать свой заказ самостоятельно из выбранного Вами пункта. Возможна оплата наличными при получении.</span>
+                                      <br><select name="delivery_city_outlets">
+                                          <option value="Выберите пункт выдачи"> Выберите пункт выдачи </option>
+                                          <option value="Северный пр., д.8, корп.1"> Северный пр., д.8, корп.1 </option>
+                                          <option value="Дыбенко ул., д.17"> Дыбенко ул., д.17 </option>
+                                          <option value="Шлиссельбургский пр., д.5"> Шлиссельбургский пр., д.5 </option>
+                                          <option value="Невский пр., д.56"> Невский пр., д.56 </option>
+                                          <option value="Луначарского пр, д.17, корп.3"> Луначарского пр, д.17, корп.3 </option>
+                                          <option value="Космонавтов пр, д.23"> Космонавтов пр, д.23 </option>
+                                          <option value="Московский пр, д.17, корп.1"> Московский пр, д.17, корп.1 </option>
+                                          <option value="Савушкина ул, д.10"> Савушкина ул, д.10 </option>
+                                          <option value="Маршала Казакова пр, д.88"> Маршала Казакова пр, д.88 </option>
+                                      </select>
+                                      </span>
+                                    </div>
+
+                                    <br><input type="radio" name="delivery" value="ems" style="cursor:pointer;" onclick="Go()">&nbsp; EMS Почта России  
+                                    <div style="display:none;" class="ems" id="ems">
+                                    <span class="payment_delivery_courier">Стоимость доставки отобразится ниже, в зависимости от веса посылки и выборе региона доставки. <br>Срок доставки: 3-7 дней в зависимости от региона. </span>
+                                    <br><span class="payment_delivery_courier_title">Оплаченный заказ передается курьеру на следующий день. <br><b>Доставка осуществляется только по предварительной оплате!</b></span>
+  
+                                      <br><select name="ems">
+                                          <option value="">Выберите город или регион</option>
+                                          <optgroup label="Города">
+                                                  <option value="city_abakan">Абакан</option>
+                                                  <option value="city_vanadyr">Анадырь</option>
+                                                  <option value="city_anapa">Анапа</option>
+                                                  <option value="city_arhangelsk">Архангельск</option>
+                                                  <option value="city_astrahan">Астрахань</option>
+                                                  <option value="city_barnaul">Барнаул</option>
+                                                  <option value="city_belgorod">Белгород</option>
+                                                  <option value="city_birobidzhan">Биробиджан</option>
+                                                  <option value="city_blagoveshhensk">Благовещенск</option>
+                                                  <option value="city_brjansk">Брянск</option>
+                                                  <option value="city_velikij-novgorod">Великий Новгород</option>
+                                                  <option value="city_vladivostok">Владивосток</option>
+                                                  <option value="city_vladikavkaz">Владикавказ</option>
+                                                  <option value="city_vladimir">Владимир</option>
+                                                  <option value="city_volgograd">Волгоград</option>
+                                                  <option value="city_vologda">Вологда</option>
+                                                  <option value="city_vorkuta">Воркута</option>
+                                                  <option value="city_voronezh">Воронеж</option>
+                                                  <option value="city_gorno-altajsk">Горно-Алтайск</option>
+                                                  <option value="city_groznyj">Грозный</option>
+                                                  <option value="city_dudinka">Дудинка</option>
+                                                  <option value="city_ekaterinburg">Екатеринбург</option>
+                                                  <option value="city_elizovo">Елизово</option>
+                                                  <option value="city_ivanovo">Иваново</option>
+                                                  <option value="city_izhevsk">Ижевск</option>
+                                                  <option value="city_irkutsk">Иркутск</option>
+                                                  <option value="city_ioshkar-ola">Йошкар-Ола</option>
+                                                  <option value="city_kazan">Казань</option>
+                                                  <option value="city_kaliningrad">Калининград</option>
+                                                  <option value="city_kaluga">Калуга</option>
+                                                  <option value="city_kemerovo">Кемерово</option>
+                                                  <option value="city_kirov">Киров</option>
+                                                  <option value="city_kostomuksha">Костомукша</option>
+                                                  <option value="city_kostroma">Кострома</option>
+                                                  <option value="city_krasnodar">Краснодар</option>
+                                                  <option value="city_krasnojarsk">Красноярск</option>
+                                                  <option value="city_kurgan">Курган</option>
+                                                  <option value="city_kursk">Курск</option>
+                                                  <option value="city_kyzyl">Кызыл</option>
+                                                  <option value="city_lipeck">Липецк</option>
+                                                  <option value="city_magadan">Магадан</option>
+                                                  <option value="city_magnitogorsk">Магнитогорск</option>
+                                                  <option value="city_majkop">Майкоп</option>
+                                                  <option value="city_mahachkala">Махачкала</option>
+                                                  <option value="city_mineralnye-vody">Минеральные Воды</option>
+                                                  <option value="city_mirnyj">Мирный</option>
+                                                  <option value="city_moskva">Москва</option>
+                                                  <option value="city_murmansk">Мурманск</option>
+                                                  <option value="city_mytishhi">Мытищи</option>
+                                                  <option value="city_naberezhnye-chelny">Набережные Челны</option>
+                                                  <option value="city_nadym">Надым</option>
+                                                  <option value="city_nazran">Назрань</option>
+                                                  <option value="city_nalchik">Нальчик</option>
+                                                  <option value="city_narjan-mar">Нарьян-Мар</option>
+                                                  <option value="city_nerjungri">Нерюнгри</option>
+                                                  <option value="city_neftejugansk">Нефтеюганск</option>
+                                                  <option value="city_nizhnevartovsk">Нижневартовск</option>
+                                                  <option value="city_nizhnij-novgorod">Нижний Новгород</option>
+                                                  <option value="city_novokuzneck">Новокузнецк</option>
+                                                  <option value="city_novorossijsk">Новороссийск</option>
+                                                  <option value="city_novosibirsk">Новосибирск</option>
+                                                  <option value="city_novyj-urengoj">Новый Уренгой</option>
+                                                  <option value="city_norilsk">Норильск</option>
+                                                  <option value="city_nojabrsk">Ноябрьск</option>
+                                                  <option value="city--omsk">Омск</option>
+                                                  <option value="city_orel">Орел</option>
+                                                  <option value="city_orenburg">Оренбург</option>
+                                                  <option value="city_penza">Пенза</option>
+                                                  <option value="city_perm">Пермь</option>
+                                                  <option value="city_petrozavodsk">Петрозаводск</option>
+                                                  <option value="city_petropavlovsk-kamchatskij">Петропавловск-Камчатский</option>
+                                                  <option value="city_pskov">Псков</option>
+                                                  <option value="city_rostov-na-donu">Ростов-на-Дону</option>
+                                                  <option value="city_rjazan">Рязань</option>
+                                                  <option value="city_salehard">Салехард</option>
+                                                  <option value="city_samara">Самара</option>
+                                                  <option value="city_sankt-peterburg" selected="">Санкт-Петербург</option>
+                                                  <option value="city_saransk">Саранск</option>
+                                                  <option value="city_saratov">Саратов</option>
+                                                  <option value="city_smolensk">Смоленск</option>
+                                                  <option value="city_sochi">Сочи</option>
+                                                  <option value="city_stavropol">Ставрополь</option>
+                                                  <option value="city_strezhevoj">Стрежевой</option>
+                                                  <option value="city_surgut">Сургут</option>
+                                                  <option value="city_syktyvkar">Сыктывкар</option>
+                                                  <option value="city_tambov">Тамбов</option>
+                                                  <option value="city_tver">Тверь</option>
+                                                  <option value="city_toljatti">Тольятти</option>
+                                                  <option value="city_tomsk">Томск</option>
+                                                  <option value="city_tula">Тула</option>
+                                                  <option value="city_tynda">Тында</option>
+                                                  <option value="city_tjumen">Тюмень</option>
+                                                  <option value="city_ulan-udje">Улан-Удэ</option>
+                                                  <option value="city_uljanovsk">Ульяновск</option>
+                                                  <option value="city_usinsk">Усинск</option>
+                                                  <option value="city_ufa">Уфа</option>
+                                                  <option value="city_uhta">Ухта</option>
+                                                  <option value="city_khabarovsk">Хабаровск</option>
+                                                  <option value="city_khanty-mansijsk">Ханты-Мансийск</option>
+                                                  <option value="city_kholmsk">Холмск</option>
+                                                  <option value="city_cheboksary">Чебоксары</option>
+                                                  <option value="city_cheljabinsk">Челябинск</option>
+                                                  <option value="city_cherepovec">Череповец</option>
+                                                  <option value="city_cherkessk">Черкесск</option>
+                                                  <option value="city_chita">Чита</option>
+                                                  <option value="city_elista">Элиста</option>
+                                                  <option value="city_yuzhno-sahalinsk">Южно-Сахалинск</option>
+                                                  <option value="city_yakutsk">Якутск</option>
+                                                  <option value="city_yaroslavl">Ярославль</option>
+                                                  </optgroup>
+                                          <optgroup label="Регионы">
+                                              <option value="region_altajskij-kraj">Алтайский край</option>
+                                                  <option value="region_amurskaja-oblast">Амурская область</option>
+                                                  <option value="region_arhangelskaja-oblast">Архангельская область</option>
+                                                  <option value="region_astrahanskaja-oblast">Астраханская область</option>
+                                                  <option value="region_belgorodskaja-oblast">Белгородская область</option>
+                                                  <option value="region_brjanskaja-oblast">Брянская область</option>
+                                                  <option value="region_vladimirskaja-oblast">Владимирская область</option>
+                                                  <option value="region_volgogradskaja-oblast">Волгоградская область</option>
+                                                  <option value="region_vologodskaja-oblast">Вологодская область</option>
+                                                  <option value="region_voronezhskaja-oblast">Воронежская область</option>
+                                                  <option value="region_evrejskaja-ao">Еврейская АО</option>
+                                                  <option value="region_zabajkalskij-kraj">Забайкальский край</option>
+                                                  <option value="region_ivanovskaja-oblast">Ивановская область</option>
+                                                  <option value="region_irkutskaja-oblast">Иркутская область</option>
+                                                  <option value="region_kabardino-balkarskaja-respublika">Кабардино-Балкарская Республика</option>
+                                                  <option value="region_kaliningradskaja-oblast">Калининградская область</option>
+                                                  <option value="region_kaluzhskaja-oblast">Калужская область</option>
+                                                  <option value="region_kamchatskij-kraj">Камчатский край</option>
+                                                  <option value="region_karachaevo-cherkesskaja-respublika">Карачаево-Черкесская Республика</option>
+                                                  <option value="region_kemerovskaja-oblast">Кемеровская область</option>
+                                                  <option value="region_kirovskaja-oblast">Кировская область</option>
+                                                  <option value="region_kostromskaja-oblast">Костромская область</option>
+                                                  <option value="region_krasnodarskij-kraj">Краснодарский край</option>
+                                                  <option value="region_krasnojarskij-kraj">Красноярский край</option>
+                                                  <option value="region_kurganskaja-oblast">Курганская область</option>
+                                                  <option value="region_kurskaja-oblast">Курская область</option>
+                                                  <option value="region_leningradskaja-oblast">Ленинградская область</option>
+                                                  <option value="region_lipeckaja-oblast">Липецкая область</option>
+                                                  <option value="region_magadanskaja-oblast">Магаданская область</option>
+                                                  <option value="region_moskovskaja-oblast">Московская область</option>
+                                                  <option value="region_murmanskaja-oblast">Мурманская область</option>
+                                                  <option value="region_neneckij-ao">Ненецкий АО</option>
+                                                  <option value="region_nizhegorodskaja-oblast">Нижегородская область</option>
+                                                  <option value="region_novgorodskaja-oblast">Новгородская область</option>
+                                                  <option value="region_novosibirskaja-oblast">Новосибирская область</option>
+                                                  <option value="region_omskaja-oblast">Омская область</option>
+                                                  <option value="region_orenburgskaja-oblast">Оренбургская область</option>
+                                                  <option value="region_orlovskaja-oblast">Орловская область</option>
+                                                  <option value="region_penzenskaja-oblast">Пензенская область</option>
+                                                  <option value="region_permskij-kraj">Пермский край</option>
+                                                  <option value="region_primorskij-kraj">Приморский край</option>
+                                                  <option value="region_pskovskaja-oblast">Псковская область</option>
+                                                  <option value="region_respublika-adygeja">Республика Адыгея</option>
+                                                  <option value="region_respublika-altaj">Республика Алтай</option>
+                                                  <option value="region_respublika-bashkortostan">Республика Башкортостан</option>
+                                                  <option value="region_respublika-burjatija">Республика Бурятия</option>
+                                                  <option value="region_respublika-dagestan">Республика Дагестан</option>
+                                                  <option value="region_respublika-ingushetija">Республика Ингушетия</option>
+                                                  <option value="region_respublika-kalmykija">Республика Калмыкия</option>
+                                                  <option value="region_respublika-karelija">Республика Карелия</option>
+                                                  <option value="region_respublika-komi">Республика Коми</option>
+                                                  <option value="region_respublika-marij-el">Республика Марий Эл</option>
+                                                  <option value="region_respublika-mordovija">Республика Мордовия</option>
+                                                  <option value="region_respublika-saha-yakutija">Республика Саха (Якутия)</option>
+                                                  <option value="region_respublika-sev.osetija-alanija">Республика Сев.Осетия-Алания</option>
+                                                  <option value="region_respublika-tatarstan">Республика Татарстан</option>
+                                                  <option value="region_respublika-tyva">Республика Тыва</option>
+                                                  <option value="region_respublika-khakasija">Республика Хакасия</option>
+                                                  <option value="region_rostovskaja-oblast">Ростовская область</option>
+                                                  <option value="region_rjazanskaja-oblast">Рязанская область</option>
+                                                  <option value="region_samarskaja-oblast">Самарская область</option>
+                                                  <option value="region_saratovskaja-oblast">Саратовская область</option>
+                                                  <option value="region_sahalinskaja-oblast">Сахалинская область</option>
+                                                  <option value="region_sverdlovskaja-oblast">Свердловская область</option>
+                                                  <option value="region_smolenskaja-oblast">Смоленская область</option>
+                                                  <option value="region_stavropolskij-kraj">Ставропольский край</option>
+                                                  <option value="region_tajmyrskij-ao">Таймырский АО</option>
+                                                  <option value="region_tambovskaja-oblast">Тамбовская область</option>
+                                                  <option value="region_tverskaja-oblast">Тверская область</option>
+                                                  <option value="region_tomskaja-oblast">Томская область</option>
+                                                  <option value="region_tulskaja-oblast">Тульская область</option>
+                                                  <option value="region_tjumenskaja-oblast">Тюменская область</option>
+                                                  <option value="region_udmurtskaja-respublika">Удмуртская Республика</option>
+                                                  <option value="region_uljanovskaja-oblast">Ульяновская область</option>
+                                                  <option value="region_khabarovskij-kraj">Хабаровский край</option>
+                                                  <option value="region_khanty-mansijskij-ao">Ханты-Мансийский АО</option>
+                                                  <option value="region_cheljabinskaja-oblast">Челябинская область</option>
+                                                  <option value="region_chechenskaja-respublika">Чеченская республика</option>
+                                                  <option value="region_chuvashskaja-respublika">Чувашская Республика</option>
+                                                  <option value="region_chukotskij-ao">Чукотский АО</option>
+                                                  <option value="region_yamalo-neneckij-ao">Ямало-Ненецкий АО</option>
+                                                  <option value="region_yaroslavskaja-oblast">Ярославская область</option>
+                                              </optgroup>
+                                      		</select>
+                                      	</div>
+    
+                                          <script>
+                                              //нужно задать переменные
+                                              var radio1 = document.getElementById('courier');
+                                              var radio2 = document.getElementById('immediately_courier');
+                                              var radio3 = document.getElementById('area');
+                                              var radio4 = document.getElementById('pickup');
+                                              var radio5 = document.getElementById('ems');
+
+                                              function display (radio) {
+                                              radio.style.display=(radio.previousElementSibling.checked)? 'block': 'none'}
+
+                                              function Go() {
+                                              display (radio1);
+                                              display (radio2);
+                                              display (radio3);
+                                              display (radio4);
+                                              display (radio5);
+                                              }
+                                          </script>      
+										</div>
+
+                                        <div class="payment">
+                                        <h6 style="font-weight:bold;margin-top:0px; margin-left:30px;"> Способы оплаты: </h6>
+                                        <input type="radio" name="oplata" value="nal" style="cursor:pointer;" onclick="Oplata()" />&nbsp;&nbsp;Наличными курьеру 
+
+                                        <!--<div class="delivery_info"> Оплата при получении заказа  </div>-->
+                                        <div class="oplata_nal" id="nal" style="display:none">
+                                            <span class="payment_delivery_courier">Оплата при получении заказа. </span>
+                                            <ul class="sposoby_nal">
+                                              <li> Для заказов с доставкой по Санкт-Петербургу </li>
+                                              <li> Для самовывозов из пункта выдачи </li>
+                                            </ul>
+                                        </div>
+
+                                        <br><input type="radio" name="oplata" value="wire" style="cursor:pointer;" onclick="Oplata()">&nbsp;&nbsp;Безналичный расчёт
+                                        <!--<div class="delivery_info"> Оплата на сайте <b>без комиссии</b>.</div>-->
+                                        <div class="oplata_wire" id="wire" style="display:none">
+                                            <span class="payment_delivery_courier"> Мнгновенная оплата на сайте без комиссии. </span>
+                                            <br><span class="payment_delivery_courier_title">Мы принимаем к оплате карты Master Card, Visa и Maestro.</span>
+                                        </div>
+
+                                        <br><input type="radio" name="oplata" value="yandex" style="cursor:pointer;" onclick="Oplata()">&nbsp;&nbsp;Яндекс Деньги
+                                        <!--<div class="delivery_info">Оплата со своего счета Яндекс Деньги <b>без комиссии</b></div>-->
+                                        <div class="oplata_yandexmoney" id="yandex" style="display:none">
+                                            <span class="payment_delivery_courier"> Мнгновенная оплата на сайте без комиссии. </span>
+                                            <br><span class="payment_delivery_courier_title">Оплата с Вашего счета Яндекс Деньги.</span>
+                                        </div>
+
+                                        <br><input type="radio" name="oplata" value="webmoney" style="cursor:pointer;" onclick="Oplata()">&nbsp;&nbsp;WebMoney
+                                        <!--<div class="delivery_info">Оплата со своего счета WebMoney <b>без комиссии</b></div>-->
+                                        <div class="oplata_webmoney" id="webmoney" style="display:none">
+                                            <span class="payment_delivery_courier"> Мнгновенная оплата на сайте без комиссии. </span>
+                                            <br><span class="payment_delivery_courier_title">Оплата с Вашего счета WebMoney.</span>
+                                        </div>
+
+                                        <br><input type="radio" name="oplata" value="bank_wire" style="cursor:pointer;" onclick="Oplata()">&nbsp;&nbsp;Банковский перевод
+                                        <!--<div class="delivery_info">Оплата в любом банке</div>-->
+                                        <div class="oplata_bank_wire" id="bank_wire" style="display:none">
+                                            <span class="payment_delivery_courier"> Оплатить заказ можно в любом банке. Банки могут взимать комиссию за перевод. </span>
+                                            <br><a href="kvitanciya.doc" target="_blank"> Распечатать банковскую квитанцию для оплаты </a>
+                                        </div>
+
+                                        <script>
+                                            //нужно задать переменные
+                                            var radio6 = document.getElementById('nal');
+                                            var radio7 = document.getElementById('wire');
+                                            var radio8 = document.getElementById('yandex');
+                                            var radio9 = document.getElementById('webmoney');
+                                            var radio10 = document.getElementById('bank_wire');
+
+
+                                            function display (radio) {
+                                            radio.style.display=(radio.previousElementSibling.checked)? 'block': 'none'}
+
+                                            function Oplata() {
+                                            display (radio6);
+                                            display (radio7);
+                                            display (radio8);
+                                            display (radio9);
+                                            display (radio10);
+                                            }
+                                        </script> 
+
+										</div>
+
+                                        <div class="information">
+                                        <h6 style="font-weight:bold;margin-top:0px; margin-left:30px;"> Персональные данные: </h6>
+
+                                           <div>
+                                             <label>Ваше имя:<span class="important"> * </span></label>
+                                             <input type="text" class="name" name="name" placeholder="Ваше имя" required="" />
+                                           </div>
+                                           <div>
+                                             <label>Номер телефона:<span class="important"> * </span></label>
+                                             <input type="tel" class="tel" name="phone" id="phone" placeholder="Номер телефона" required="" style="opacity:0.75;" />
+                                           </div>
+                                           <div>
+                                             <label>Email адрес:<span class="important"> * </span></label>
+                                             <input type="email" class="tel" name="email" placeholder="Email адрес" required="" style="opacity:0.75;" />
+                                           </div>
+                                           <div>
+                                             <label>Адрес доставки:<span class="important"> * </span></label>
+                                             <input type="text" class="adress" name="address" placeholder="Адрес доставки" required="" />
+                                           </div>
+                                           <div>
+                                             <label>Дополнительная информация:</label>
+                                             <textarea class="dop_info" name="dop_info" placeholder="Дополнительная инф-ия" cols="100" rows="7"></textarea>
+                                           </div>
+                                            <p>
+                                              <span class="important"> Внимание! </span> 
+                                              &nbsp;  Поля отмеченные <span class="important"> * </span> обязательны для заполнения.  
+                                            </p>
+                                           <div class="button_cart">
+                                             <input type="submit" name="order" class="my-btn" value="Оформить заказ" />
+                                            </div>
+
+                                        </div>
+                                </form>
+                              </div>
+                           </div>
+                      </form>
+                  </div>  
+                             
+                          
+      							<?php
+                                /*  $e=$_SESSION['properties'];
+
+                                  for($i=0; $i<count($_SESSION['properties']); $i++)
+                                  {
+
+                                    $e = $_GET["preference$i"];
+                                    $d[] = $e;
+
+                                  } 
+
+
+
+                                  for($i=0; $i<count($_SESSION['cart']); $i++)
+                                  {
+
+                                    if(isset($_GET["preference$i"])) {
+                                    echo "<script>location.replace('cart.php');</script>";
+                                    }
+
+                                  }
+
+                                 if ($_SESSION['total_amount'] == 0) {
+
+                                     echo "<div class='cart_without_tovary'>";
+                            echo '<p style="font-size:18px; margin-left:25px;" > </br> В настоящей момент Ваша корзина пуста. <a href="katalog.php"> Перейти в каталог.</a>';
+                                echo "</div>";
+                                } else { echo "<div class='cart_with_tovary'>
+
+                                <div class='my_cart'>
+                                <form action='cart.php' method='get'>
+                                  <table class='my_cart_tovary'>
+                                  <tr>
+                                  <td class='tovar'> Товар </td>
+                                  <td class='name_tovarov'> Название </td>
+                                  <td class='amount_tovarov'> Количество </td>
+                                  <td class='taste_tovarov'> Вкус,объём или размер </td>
+                                  <td class='price_tovarov'> Цена </td>
+                                  <td class='action'> Действие </td>
+                                  </tr>";
+            
+	  							  session_start();
+                                   
+                                  $itogo=0;
+                                  for($i=0; $i<count($_SESSION['cart']); $i++)
+                                  {
+
+                                      $sql="SELECT * FROM tovary WHERE id=".$_SESSION['cart'][$i]."";
+                                      $rez=mysql_query($sql);
+                                      $tov=mysql_fetch_array($rez);
+
+                                      $preference = explode(",", $tov[preference]);
+
+								*/
+                                  /* Выгружаем доступные вкусы (свойства) товара */ 
+
+                                /*  $sql_sklad="SELECT * FROM sklad WHERE id_tov=".$_SESSION['cart'][$i]."";
+                                  $rez_sklad=mysql_query($sql_sklad);  
+                                  $sklad=mysql_fetch_array($rez_sklad);
+
+                                  $preference_sklad = explode(",", $sklad['preference']);  
+                                  $kol_sklad = explode(",", $sklad['kol']);   
+
+                                   for($k=0; $k<count($preference_sklad); $k++) {
+
+                                      if ($kol_sklad[$k]==0) {
+                                      unset($preference_sklad[$k]);
+                                      }
+
+                                  }   
+
+                                  $_GET['x$i'] = trim($_GET['x$i']);                     // Обрезаем пробелы и спецсиволы
+                                  $_GET['x$i'] = strip_tags($_GET['x$i']);               // Удаляем HTML и PHP теги
+                                  $_GET['x$i'] = mysql_real_escape_string($_GET['x$i']); // Экранируем специальные символы  
+                                  $_GET['x$i'] = ceil($_GET['x$i']); 					// Округляем в большую сторону
+                                  $_SESSION['amount'][$i]	= ceil($_SESSION['amount'][$i]);
+  
+
+                                   echo "<tr>";
+                                echo "<td class='photo_tovarov'><img src='../photos/$tov[photo]' width='60' height='80'></a></td>";
+                                echo "<td class='name_tovarov_content'><a href='../products/$tov[manuf]-$tov[nazv]-$tov[mass].php'>$tov[nazv], $tov[mass] $tov[unit].</a></td>";
+                                    echo "<td class='amount_tovarov_content'><input type='text' size='1' value='".$_SESSION['amount'][$i]."' name='x$i' maxlength='10'></input></td>";
+                                    echo "<td class='taste_tovarov_content'>"; 
+
+
+                                if (!empty($e)) {
+
+                                  $_SESSION['properties']=$d; 
+
+                                 echo "<select name='preference$i' onChange=document.getElementById('cart').submit() id='preference$i'>";
+
+                                 echo "<option value='".$d[$i]."' selected='selected'>".$d[$i]."</option>"; 
+
+                                 foreach($preference as $vkus)
+                                {	
+
+                                    echo "<option value='$vkus'>$vkus</option>";
+                                }
+                                echo "</select>";   
+
+                                } else if (empty($e)) {
+    
+                                    echo "<select name='preference$i' onChange=document.getElementById('cart').submit() id='preference$i'>";  
+                                    echo "<option value='".$_SESSION['properties'][$i]."' selected='selected'>".$_SESSION['properties'][$i]."</option>";
+   
+                                    foreach($preference_sklad as $preference_tov[preference])
+                                       {
+                                          echo "<option value='$preference_tov[preference]'>$preference_tov[preference]</option>";
+                                       }
+                                  
+  								}  
+  
+                                  echo "</td>";
+                                  if ($tov[cena_sale]==0){
+
+                                    if($_SESSION[id_users]) {
+
+                                    echo "<td class='price_tovarov_content'> <span class='cena'> ".$_SESSION['prices'][$i]." руб.</span><br><span class='bonus_price_tovar' > + ".$_SESSION['point'][$i]." бонусов </span> </td>";
+
+                                    } else {      
+                                    echo "<td class='price_tovarov_content'> <span class='cena'> ".$_SESSION['prices'][$i]." руб.</span> </td>";
+                                    }
+
+                                  } else {
+
+                                    if($_SESSION[id_users]) {
+
+                                      echo "<td class='price_tovarov_content'> <span class='cena_sale'> ".$_SESSION['prices'][$i]." руб.</span> <br> <span class='cena_old'> $tov[cena] руб.</span> <br><span class='bonus_price_tovar' > + ".$_SESSION['point'][$i]." бонусов </span> </td>";
+
+                                        } else {      
+                                        echo "<td class='price_tovarov_content'> <span class='cena_sale'> ".$_SESSION['prices'][$i]." руб.</span> <br> <span class='cena_old'> $tov[cena] руб.</span> </td>";
+                                        }  
+
+                                     }
+                                    echo "<td class='deleate'><a href='?del_cart=$i' title='Удалить товар из корзины'> Удалить </a></td>"; 
+                                    echo "</tr>";
+
+                                  }
+
+                                   ?>
+
+                                   <?php       
+
+                                      if($_SESSION[id_users])
+                                  {
+
+                                  $sql="SELECT * FROM users WHERE id_users='$_SESSION[id_users]'";
+                                  $rez=mysql_query($sql);
+                                  $user=mysql_fetch_array($rez);
+
+                                   $_SESSION['user_bonus'] = $user['bonus'];
+
+                                         if($user['bonus'] !== '0' AND $_SESSION['bonus_payment_user'] == 0) {
+
+                                  echo "<tr>
+
+                                    <td class='itogo' colspan='2' style='font-size:14px;'> Оплатить бонусами: </td> 
+                                    <td class='clear_cart'><input type='text' size='1' value='' name='bonus_payment_user' maxlength='10' style='margin: 5px 0px 5px 10px;
+                                  width: 100px; font-size: 14px; text-align: center; font-weight: bold;'></td>
+                                    <td class='clear_cart' style='font-size: 14px; font-weight: bold;'>Бонусный счёт:</td>
+                                    <td class='clear_cart' colspan='2' style='font-size: 14px; font-weight: bold;'>  $user[bonus] бонусов </td>  
+
+                                   </tr>";
+
+                                    echo "<tr>
+                                    <td class='itogo'> Итого: </td>
+                                    <td class='itogo_cena'>$_SESSION[total_price] руб. <br> <span class='bonus_price_tovar'> + $_SESSION[total_bonus] бонусов </span> </td> 
+                                    <td class='clear_cart'><input type='submit' class='pereschet_btn' name='pereschet' value='Пересчитать'></td>
+                                    <td class='clear_cart'><a href='?clear_cart=ok' title='Очистить корзину'> Очистить корзину </a></td>
+
+                                    </tr>";
+
+                                           }
+
+                                           else if($_SESSION['bonus_payment_user'] > 0 AND $_SESSION['bonus_payment_user'] <= $user['bonus']) {
+
+
+                                                  $_SESSION['user_bonus_after'] = $user['bonus'] - $_SESSION['bonus_payment_user'];
+                                                  $_SESSION['user_bonus_cart']=$_SESSION['user_bonus_after']+$_SESSION['total_bonus'];
+
+                                             //  $_SESSION['total_price']-=$_SESSION['bonus_payment_user'];
+                                             //$_SESSION['total_price']-=$_SESSION['user_bonus_after'];
+
+                                        echo "<tr>
+
+                                    <td class='itogo' colspan='2' style='font-size:14px;'> Оплатить бонусами: </td> 
+                                    <td class='clear_cart'><input type='text' size='1' value='$_SESSION[bonus_payment_user]' name='bonus_payment_user' maxlength='10' style='margin: 5px 0px 5px 10px;width: 100px; font-size: 14px; text-align: center; font-weight: bold;'></td>
+                                    <td class='clear_cart' style='font-size: 14px; font-weight: bold;'>Бонусный счёт:</td>
+                                    <td class='clear_cart' colspan='2' style='font-size: 14px; font-weight: bold;'> 
+                                    <span style=''> $_SESSION[user_bonus_after] бонусов </span> <br> 
+                                    <span style='font-size:12px;color:#C03;'> -$_SESSION[bonus_payment_user] бонусов </span>
+                                    </td>  
+
+                                   </tr>";
+
+                                    echo "<tr>
+                                    <td class='itogo'> Итого: </td>
+                                    <td class='itogo_cena'>$_SESSION[total_price] руб. <br> <span class='bonus_price_tovar'> + $_SESSION[total_bonus] бонусов </span> </td> 
+                                    <td class='clear_cart'><input type='submit' class='pereschet_btn' name='pereschet' value='Пересчитать'></td>
+                                    <td class='clear_cart'><a href='?clear_cart=ok' title='Очистить корзину'> Очистить корзину </a></td>
+                                    <td class='clear_cart' colspan='2'><a href='?clear_bonus=ok' title='Вернуть бонусы'> Вернуть бонусы </a></td>
+
+                                   </tr>";          
+
+                                            } else if ($_SESSION['bonus_payment_user'] > 0 AND $_SESSION['bonus_payment_user'] > $user['bonus']) {
+
+
+                                    echo "<tr>
+
+                                    <td class='itogo' colspan='2' style='font-size:14px;'> Оплатить бонусами: </td> 
+                                    <td class='clear_cart'><input type='text' size='1' value='' name='bonus_payment_user' maxlength='10' style='margin: 5px 0px 5px 10px;
+                                  width: 100px; font-size: 14px; text-align: center; font-weight: bold;'></td>
+                                    <td class='clear_cart' style='font-size: 14px; font-weight: bold;'>Бонусный счёт:</td>
+                                    <td class='clear_cart' colspan='2' style='font-size: 14px; font-weight: bold;'>  $user[bonus] бонусов </td>  
+
+                                   </tr>"; 
+
+                                   echo "<tr>
+                                    <td class='itogo'> Итого: </td>
+                                    <td class='itogo_cena'>$_SESSION[total_price] руб. <br> <span class='bonus_price_tovar'> + $_SESSION[total_bonus] бонусов </span> </td> 
+                                    <td class='clear_cart'><input type='submit' class='pereschet_btn' name='pereschet' value='Пересчитать'></td>
+                                    <td class='clear_cart'><a href='?clear_cart=ok' title='Очистить корзину'> Очистить корзину </a></td>
+                                    <td class='clear_cart' colspan='2' style='font-weight: bold; color: #C02;'>У вас нет столько бонусов!</td>
+                                    </tr>";
+
+                                             $_SESSION['total_price']+=0;        
+
+                                            } else if($_SESSION['bonus_payment_user'] == 0) {
+
+                                      $_SESSION['user_bonus_after'] = $user['bonus'];        
+
+                                    echo "<tr>
+                                    <td class='itogo'> Итого: </td>
+                                    <td class='itogo_cena'>$_SESSION[total_price] руб. <br> <span class='bonus_price_tovar'> + $_SESSION[total_bonus] бонусов </span> </td> 
+                                    <td class='clear_cart'><input type='submit' class='pereschet_btn' name='pereschet' value='Пересчитать'></td>
+                                    <td class='clear_cart'><a href='?clear_cart=ok' title='Очистить корзину'> Очистить корзину </a></td>
+
+                                    </tr>";
+
+                                    }
+
+                                      } else if (!$_SESSION[id_users]) {
+
+                                    echo "<tr>
+                                    <td class='itogo'> Итого: </td>
+                                    <td class='itogo_cena'>$_SESSION[total_price] руб. </td> 
+                                    <td class='clear_cart'><input type='submit' class='pereschet_btn' name='pereschet' value='Пересчитать'></td>
+                                    <td class='clear_cart'><a href='?clear_cart=ok' title='Очистить корзину'> Очистить корзину </a></td>
+
+                                   </tr>";
+
+                                      }*/
+
+                                   ?>  
+
+                        
+   				</div> 
+      		</div>
+   		</div>     
+      </div>
+	</div>
+</div>
+    <?php require("templates/right-menu.php"); ?>
+</div>
+  </div>
+
+
+<div class="col-md-12"><h3 style="text-align:center; margin:20px 0px;">Наши преимущества</h3>
+    <div class="container">
+       <div class="row"> 
+       
+       <div class="col-md-3">
+        <div class="advantages">
+        <div class="img_advantages"><img src="../img/dolly_1.png" width="55" height="55"></div><div class="text_advantages"> Быстрая доставка </div> 
+        <div class="description_advantages"> Гибкие условия доставки по городу и области. Самовывоз из пунктов выдачи по всему городу. Резерв до 5 дней. 
+        <br><br><a href="send.php" class=""> Читать далее </a>
+        </div>
+       </div>
+       </div>  
+  
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/creditcard_1.png" width="55" height="55"></div><div class="text_advantages"> Способы оплаты </div> 
+       <div class="description_advantages"> Вы можете оплатить товар наличными, безналичным платёжом или электронными деньгами. 
+       <br><br><a href="oplata.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/cart_1.png" width="55" height="55"></div><div class="text_advantages"> Ассортимент </div> 
+       <div class="description_advantages"> В нашем магазине Вы можете приобрести товары как отечественных, так и зарубежных производителей. 
+       <br><br><a href="katalog.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/money_1.png" width="55" height="55"></div><div class="text_advantages"> Цены на товары </div> 
+       <div class="description_advantages"> Вас порадуют цены на товары в нашем магазине. Каждую неделю мы делаем скидки на наиболее популярные товары. 
+       <br><br><a href="sale.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>
+        
+      </div>
+     </div>
+</div>
+
+<div class="container-fluid" style="border:0px solid #222;">
+  <div class="row">
+    <div class="col-md-12" style="margin:0; padding:0;"><h3 style="text-align:center; margin:20px 0px;">Адреса магазинов</h3>
+     <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SBMCoFRtTod7zUZ_Uiq5nC_qNqtHBwjN&width=100%&height=550">        </script>
+    </div>
+  </div>
+</div>  

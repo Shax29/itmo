@@ -1,0 +1,231 @@
+<div class="col-md-3">
+  <div class="right-menu">
+     <div class="col-md-12">
+       <div class="kachestvo" style="text-align: -webkit-center; margin:15px 0px;">
+         <img src="../img/quality_guarantee.png" width="190" height="140" />
+       </div>
+     </div>
+     <div class="col-md-12">
+      <!--<div class="container-fluid">-->
+       <div>
+       <div class="tovar-week">
+        <h4 align="center" style="margin:20px 0px;"> Популярные товары </h4>
+        <!--<form action="" method="post" class="tovary_week_form">-->
+       <div class="owl-carousel slider-4">
+         
+         <?php  
+          $res = $db->query("SELECT * FROM tovary WHERE product_availability='1' ORDER BY RAND() LIMIT 1");
+          //$res = $db->query("SELECT * FROM tovary WHERE tovar_popular='1' AND product_availability='1' ORDER BY RAND() LIMIT 1");
+          while($tovar_popular = mysqli_fetch_assoc($res)){
+            if ($tovar_popular['cena_sale']==0) 
+				{        
+					$bonus=$tovar_popular['cena']*2/100;
+					$bonus=ceil($bonus);  
+				} else if ($tovar_popular['cena_sale']!==0) 
+				{
+					$bonus=$tovar_popular['cena_sale']*2/100;
+					$bonus=ceil($bonus); 
+				}  
+  
+			if ($tovar_popular['mass']=='0') $tovar_popular['mass']='';  
+			$preference = explode(",", $tovar_popular[preference]);
+            foreach($preference as $tovar_popular[preference]) {}
+         echo "<div class='item_box'>   
+         <div class='item'>
+          <div class='item-cont'>
+            <span class='vendor'> $tovar_popular[manuf] </span>
+            <div class='picture'>
+            	<a href='../catalog.php?product_eng=$tovar_popular[product_eng]&category_eng=$tovar_popular[category_eng]&manuf_eng=$tovar_popular[manuf]&nazv=$tovar_popular[nazv]&mass=$tovar_popular[mass]&id=$tovar_popular[id]'>
+              		<img src='../photos/$tovar_popular[photo]' style='height: 100px; margin-left:5px;' />
+              	</a>
+            </div>
+            <div class='title_tovar'>
+              <p>
+               <a href='../catalog.php?product_eng=$tovar_popular[product_eng]&category_eng=$tovar_popular[category_eng]&manuf_eng=$tovar_popular[manuf]&nazv=$tovar_popular[nazv]&mass=$tovar_popular[mass]&id=$tovar_popular[id]'> $tovar_popular[nazv] </a>
+              </p>
+            </div>
+            <div class='price'>
+              <br/>";
+              if ($tovar_popular[cena_sale]!=0) {
+           
+      			echo "<br/><span class='price_tovar'> $tovar_popular[cena_sale] руб. </span>
+      			<br/><span class='old_price_tovar' > $tovar_popular[cena] руб. </span>
+      			<br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";
+ 
+   			  } else { 
+            
+      			echo "<br/><span class='price_tovar_standart' > $tovar_popular[cena] руб. </span>
+      			<br/><span class='bonus_price_tovar' > + $bonus бонусов </span>";  
+                
+  			  }    
+              
+            echo "</div>
+            <div>
+              <span class='summary'> $tovar_popular[category], $tovar_popular[mass] $tovar_popular[unit]. </span>
+            </div>  
+            </div>
+            <div class='buy_tovar'>";
+              echo "<select name='preference[$tovar_popular[id]]' id='item_preference[$tovar_popular[id]]'>";
+	  
+				foreach($preference as $tovar_popular[preference])
+    		   {
+        		  echo "<option value='$tovar_popular[preference]'>$tovar_popular[preference]</option>";
+    		   }
+               
+			  echo "</select>";
+            echo "</div>  
+            <div class='buy_tovar'>  
+              <div class='amount'>
+                <span class='minus'>
+                <div class='amount_minus amount_minus_right'>
+                  <a href='#' class='icon icon-minuss'>–</a>
+                </div>
+                </span>
+                <div class='amount_text'>
+                  <input type='text' value='1' name='kol[$tovar_popular[id]]' class='amount' id='kol[$tovar_popular[id]]' size='5'>
+                </div>
+                <span class='plus'>
+                  <div class='amount_plus amount_plus_right'>
+                    <a href='#' class='icon icon-pluss'>+</a>
+                  </div>
+                </span>
+              </div>";
+                 /*<div class='buy' id='btn-click'>
+	               <a href='?submit_buy=$tovar_week[id]'>
+                    <button name='submit_buy' value='$tovar_week[id]' class='btn btn-7 btn-3 btn-icon-only icon-cart add_item' data-id='$tovar_week[id]' data-price='$tovar_week[cena_sale]' data-title='$tovar_week[nazv], $tovar_week[mass] $tovar_week[unit]' data-img='$tovar_week[photo]'></button>
+                   </a>      
+                 </div>*/
+                 
+                 if ($tovar_popular[cena_sale]!=0) {
+                 echo "<div class='buy' id='btn-click'>
+                    <button name='submit_buy' value='$tovar_popular[id]' class='btn btn-7 btn-3 btn-icon-only icon-cart add_item' data-id='$tovar_popular[id]' data-price='$tovar_popular[cena_sale]' data-old-price='$tovar_popular[cena]' data-title='$tovar_popular[nazv], $tovar_popular[mass] $tovar_popular[unit]' data-img='$tovar_popular[photo]'></button>
+                 </div>";
+                 } else {
+                 echo "<div class='buy' id='btn-click'>
+                    <button name='submit_buy' value='$tovar_popular[id]' class='btn btn-7 btn-3 btn-icon-only icon-cart add_item' data-id='$tovar_popular[id]' data-price='$tovar_popular[cena]' data-old-price='0' data-title='$tovar_popular[nazv], $tovar_popular[mass] $tovar_popular[unit]' data-img='$tovar_popular[photo]'></button>
+                 </div>";
+                 }
+                 
+               echo "</div>    
+           </div>";          
+            }
+          ?>
+            </div>
+         </div>
+         </div>
+        </div>
+       </div>   
+     </div>
+
+     <div class="col-md-12">
+      <div class="row"> 
+        
+        <?php
+if(isset($_GET['id'])){
+	session_start();
+	$_SESSION['items_cookie'][] = $_GET['id'];
+	$_SESSION['items_cookie'] = array_unique($_SESSION['items_cookie']);
+	$_SESSION['items_cookie'] = array_reverse($_SESSION['items_cookie']);  
+}
+	//print_r($_SESSION['items_cookie']);        
+?>
+
+        <?php
+        
+      
+       // while($tovar_week = mysqli_fetch_assoc($res)){
+        
+            if($_SESSION['items_cookie']!='') {        
+
+               echo "<div class='viewed_items'> 
+
+                  <h4 align='center' style='margin:20px 0px;'> Просмотренные товары </h4>
+
+                  <table class='items_table'>";
+
+            for($i=0; $i<count($_SESSION[items_cookie]) and $i<5; $i++)
+
+            {
+              //$sql="SELECT * FROM tovary WHERE id=".$_SESSION[items_cookie][$i]." ORDER BY id DESC LIMIT 5";
+              //$rez=mysql_query($sql);
+              //$items=mysql_fetch_array($rez);
+              $res = $db->query("SELECT * FROM tovary WHERE id=".$_SESSION[items_cookie][$i]." ORDER BY id DESC LIMIT 5");
+			  $items = mysqli_fetch_assoc($res);
+              
+                  echo "<tr>
+
+                         <td class='items_image'> 
+                            <a href='../catalog.php?product_eng=$items[product_eng]&category_eng=$items[category_eng]&manuf_eng=$items[manuf]&nazv=$items[nazv]&mass=$items[mass]&id=$items[id]'> <img src='../photos/$items[photo]' width='40px' height='40px' /> </a>
+                        </td>
+
+                         <td class='items_descr'> <a href='../catalog.php?product_eng=$items[product_eng]&category_eng=$items[category_eng]&manuf_eng=$items[manuf]&nazv=$items[nazv]&mass=$items[mass]&id=$items[id]'> $items[nazv] </a>
+                           <br> <span>$items[manuf]</span>
+                           <br> <span>$items[category]</span>
+                         </td>
+
+                  </tr>"; 
+            }
+
+                   echo "<tr class='all_viewed'> 
+                         <td colspan='2'> 
+                            <a href='../viewed-items.php'> Все просмотры </a> 
+                         <td> 
+                    </tr>";
+
+                    echo "</table> 
+
+
+                </div>";
+
+            } else {
+              echo "<div class='viewed_items'> </div>";
+            }
+            ?>
+
+       </div> 
+     </div>
+     <div class="col-md-12">
+       <div class="news">
+        <h4 align="center" style="margin:20px 0px;"> Новости </h4>
+         
+         <div class="representive_box"> 
+           <?php
+    		$res = $db->query("SELECT * FROM news ORDER BY id_news DESC limit 3");
+				while($news=mysqli_fetch_assoc($res))
+			{
+      
+     		echo "<div class='news_bl'> 
+     			<div class='news_date'>
+     				$news[date_news]
+     			</div>
+     
+     			<a href='../event.php?news=$news[id_news]'>
+     				$news[nazv_news]
+     			</a>
+     
+     			<div class='news_desk'>
+     				$news[mini_opis_news]
+     			</div>     
+     		</div>";
+                  
+    		}  
+    		?>
+                   
+          <a class="all_news_link" href="../news.html"> Все новости » </a>
+        </div>          
+       </div>
+     </div>
+     <div class="col-md-12">
+      <div class="vk_widget">    
+        <!--<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>-->
+        <h4 align="center" style="margin:20px 0px;"> Наша группа Вконтакте </h4>
+       <script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
+
+		<!-- VK Widget -->
+		<div id="vk_groups" style="margin: 0 auto; padding: 0;"></div>
+			<script type="text/javascript">
+				VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1, color1: 'E9EFF3', color2: '1C1010', color3: '3E2929'}, 74321352);
+			</script>
+     </div>
+  </div>  
+</div>

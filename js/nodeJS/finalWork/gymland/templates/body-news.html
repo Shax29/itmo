@@ -1,0 +1,99 @@
+<div class="container-fluid" style="">
+  <div class="row">
+    <div class="col-md-9">
+       <div class="row">
+         <div class="col-12">
+           <div class="">
+            
+             <nav> 
+       		 	<ul class="breadcrumb" style="background-color: #fff !important;">
+      				<li class="breadcrumb-item"><a href="../index.php" rel="home"> Главная </a></li>
+      				<li class="breadcrumb-item active" aria-current="page"> Новости </li>
+      		 	</ul>
+             </nav>
+             
+             <h3 style="text-align:center; margin:20px 0px;">Новости</h3>
+  
+      		<div class="container">
+   
+			  <?php
+              	$res=$db->query("SELECT * FROM news ORDER BY id_news");
+				while($news=mysqli_fetch_assoc($res))
+			{			
+                  echo "<div class='all_news'> 
+
+                   <h5>$news[nazv_news]</h5>
+                   <div class='news_date_description'>   
+                      $news[date_news]
+                   </div>
+
+                   <div class='all_news_desk'>
+                   	 $news[opis_news]
+                   </div>
+
+                  </div>";
+                  echo "<hr>";
+			}
+ 				?>      
+         
+      		</div>
+   		</div>     
+      </div>
+	</div>
+</div>
+    <?php require("templates/right-menu.php"); ?>
+</div>
+  </div>
+
+
+<div class="col-md-12"><h3 style="text-align:center; margin:20px 0px;">Наши преимущества</h3>
+    <div class="container">
+       <div class="row"> 
+       
+       <div class="col-md-3">
+        <div class="advantages">
+        <div class="img_advantages"><img src="../img/dolly_1.png" width="55" height="55"></div><div class="text_advantages"> Быстрая доставка </div> 
+        <div class="description_advantages"> Гибкие условия доставки по городу и области. Самовывоз из пунктов выдачи по всему городу. Резерв до 5 дней. 
+        <br><br><a href="send.php" class=""> Читать далее </a>
+        </div>
+       </div>
+       </div>  
+  
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/creditcard_1.png" width="55" height="55"></div><div class="text_advantages"> Способы оплаты </div> 
+       <div class="description_advantages"> Вы можете оплатить товар наличными, безналичным платёжом или электронными деньгами. 
+       <br><br><a href="oplata.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/cart_1.png" width="55" height="55"></div><div class="text_advantages"> Ассортимент </div> 
+       <div class="description_advantages"> В нашем магазине Вы можете приобрести товары как отечественных, так и зарубежных производителей. 
+       <br><br><a href="katalog.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>  
+     
+      <div class="col-md-3">   
+       <div class="advantages">
+       <div class="img_advantages"><img src="../img/money_1.png" width="55" height="55"></div><div class="text_advantages"> Цены на товары </div> 
+       <div class="description_advantages"> Вас порадуют цены на товары в нашем магазине. Каждую неделю мы делаем скидки на наиболее популярные товары. 
+       <br><br><a href="sale.php" class=""> Читать далее </a>
+       </div>
+       </div>
+      </div>
+        
+      </div>
+     </div>
+</div>
+
+<div class="container-fluid" style="border:0px solid #222;">
+  <div class="row">
+    <div class="col-md-12" style="margin:0; padding:0;"><h3 style="text-align:center; margin:20px 0px;">Адреса магазинов</h3>
+     <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SBMCoFRtTod7zUZ_Uiq5nC_qNqtHBwjN&width=100%&height=550">        </script>
+    </div>
+  </div>
+</div>  
